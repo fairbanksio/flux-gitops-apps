@@ -1,0 +1,19 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: docker-node-app
+  namespace: dna
+spec:
+  chart:
+    spec:
+      chart: docker-node-app
+      version: 0.4.x
+      sourceRef:
+        kind: HelmRepository
+        name: jonfairbanks
+        namespace: flux-system
+  interval: 30s
+  targetNamespace: dna
+  values:
+    replicas: 1

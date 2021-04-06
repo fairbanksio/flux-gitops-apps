@@ -12,5 +12,5 @@ spec:
         name: sealed-secrets
       version: "1.15.0-r3"
   interval: 1h0m0s
-  releaseName: sealed-secrets-controller
+  releaseName: sealed-secrets
   targetNamespace: flux-system

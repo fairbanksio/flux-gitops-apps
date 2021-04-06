@@ -3,4 +3,3 @@ kind: Kustomization
 resources:
   - nginx
   - redis
-  - sealed-secrets

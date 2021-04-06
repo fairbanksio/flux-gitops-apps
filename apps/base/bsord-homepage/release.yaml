@@ -7,11 +7,12 @@ metadata:
 spec:
   chart:
     spec:
-      chart: chart
+      chart: bsord-homepage
       sourceRef:
-        kind: GitRepository
-        name: bsord-homepage
+        kind: HelmRepository
+        name: bsord
+        namespace: flux-system
   interval: 30s
-  targetNamespace: default
+  targetNamespace: bsord-homepage
   values:
     replicas: 1

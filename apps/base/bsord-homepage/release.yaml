@@ -4,7 +4,7 @@ metadata:
   name: bsord-homepage
   namespace: bsord-homepage
 spec:
-  releaseName: bsord-homepage
+  releaseName: bsord-homepage-2
   chart:
     spec:
       chart: bsord-homepage

@@ -6,4 +6,3 @@ resources:
   - podinfo.yaml
   - bsord.yaml
   - jonfairbanks.yaml
-  - stable.yaml

@@ -3,5 +3,7 @@ kind: Kustomization
 namespace: podinfo
 resources:
   - ../base/podinfo
+  - ../base/bsord-homepage
 patchesStrategicMerge:
   - podinfo-values.yaml
+  - podinfo-homepage-values.yaml

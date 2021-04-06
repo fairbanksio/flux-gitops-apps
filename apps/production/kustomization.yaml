@@ -5,4 +5,3 @@ resources:
   - ../base/bsord-homepage
 patchesStrategicMerge:
   - podinfo-values.yaml
-  - bsord-homepage-values.yaml

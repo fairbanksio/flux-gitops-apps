@@ -17,4 +17,11 @@ spec:
   targetNamespace: bsord-homepage
   values:
     replicas: 1
-    
+    ingress:
+      enabled: true
+      annotations:
+        kubernetes.io/ingress.class: nginx
+      hosts:
+        - host: testing.bsord.dev
+          paths:
+            - "/"

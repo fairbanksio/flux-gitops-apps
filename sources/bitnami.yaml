@@ -1,5 +1,6 @@
 apiVersion: source.toolkit.fluxcd.io/v1beta1
 kind: HelmRepository
+namespace: flux-system
 metadata:
   name: bitnami
 spec:
@@ -8,6 +9,7 @@ spec:
 ---
 apiVersion: source.toolkit.fluxcd.io/v1beta1
 kind: HelmRepository
+namespace: flux-system
 metadata:
   name: sealed-secrets
   namespace: flux-system

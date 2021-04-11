@@ -1,0 +1,42 @@
+
+apiVersion: notification.toolkit.fluxcd.io/v1beta1
+kind: Provider
+metadata:
+  name: slack
+  namespace: flux-system
+spec:
+  type: slack
+  channel: general
+  secretRef:
+    name: slack-url
+---    
+apiVersion: bitnami.com/v1alpha1
+kind: SealedSecret
+metadata:
+  creationTimestamp: null
+  name: slack-url
+  namespace: flux-system
+spec:
+  encryptedData:
+    address: AgA+ELHPaeadDRu1dcd3S+1UmoZdsZHfSqPoGgiyoRO/NFLRsndfRdK78MlJaL8yGg+dwHuNWv5xFNBbuLEoDyPlkj9YF1l6JstfQEYnTZz4M3UHrQS/4dZ3haLKTmbPH6ofv2loHzRGpIEuBuGVRPsXtp+C+Zzu9qd0IPEeLfZcQf+u2t9K/hpASLB40x/q63K5MZ89h021rT0VjScHl48t7RLfIw6vvIermAxxVQ2G7m0R/hLK09uXRPSWRbn8vKgyWa/MDZmwxzwjLjJX4c7/tAXmTaTize+XDHQ0FckHvJN+0xNF4hS4W0SA1MnDjUGaqkjUKPwpmvP8TOxpj3tBKNMyV3enXRArvkTKxykQv59w7BfJAesnfcwWx0f6QBGwSNJy4VBK/0MxMs9lumQOTTayqhqg2/EoXqd4t0hh/+KPSEQEf40X9qPdEizZC3YdeNKQ38JfIPbzel4aKzfL8l88vxd2kuAGbgiVpSl3a7tRiu5p9zBw534TNrLs/MKc/PNXEXCCleHZcEOmLHm/VBP6hmJ7vdXJtbKwMWawf78J1DAljardJg0Ry1pjpomZIlarmd0ql1pZ3CcEyPUeJA7fEk79V89Q2IYbLc4llgx9V+fqFRhqhYzizkVlwcOr2Eok3sVGdDRlzJ+FqMeHnLDjK90jWDwmYENm0Rh2PEu0Nkde7nmodb07LE1Iyk30WEJ0kauaJ9/TiCXSnivcY04gQ1F0T/syWdUtCH2FHrkw5DkkTj16kWWg3DsU4XyGgCORFvbNZqKbkRLqr6MUdwB+qlKhDZUrdTC9aQOw
+  template:
+    metadata:
+      creationTimestamp: null
+      name: slack-url
+      namespace: flux-system
+status: {}
+---
+apiVersion: notification.toolkit.fluxcd.io/v1beta1
+kind: Alert
+metadata:
+  name: flux-gitops-apps
+  namespace: flux-system
+spec:
+  providerRef:
+    name: slack
+  eventSeverity: info
+  eventSources:
+    - kind: GitRepository
+      name: '*'
+    - kind: Kustomization
+      name: '*'

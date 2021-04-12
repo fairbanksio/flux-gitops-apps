@@ -5,4 +5,3 @@ spec:
     - name: sealed-secrets
       namespace: flux-system
 resources:
-  - release.yaml

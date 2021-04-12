@@ -1,7 +1,3 @@
 apiVersion: kustomize.toolkit.fluxcd.io/v1beta1
 kind: Kustomization
-spec:
-  dependsOn:
-    - name: sealed-secrets
-      namespace: flux-system
 resources:

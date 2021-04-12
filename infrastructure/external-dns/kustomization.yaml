@@ -3,6 +3,7 @@ kind: Kustomization
 spec:
   dependsOn:
     - name: sealed-secrets
+      namespace: flux-system
 resources:
   - sealed-secret.yaml
   - release.yaml

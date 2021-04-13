@@ -36,7 +36,5 @@ spec:
     name: slack
   eventSeverity: info
   eventSources:
-    - kind: GitRepository
-      name: '*'
     - kind: Kustomization
-      name: '*'
+      name: apps

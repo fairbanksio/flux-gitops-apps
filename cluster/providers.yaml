@@ -38,3 +38,5 @@ spec:
   eventSources:
     - kind: Kustomization
       name: apps-bsord
+    - kind: Kustomization
+      name: apps-jonfairbanks

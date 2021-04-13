@@ -37,4 +37,4 @@ spec:
   eventSeverity: info
   eventSources:
     - kind: Kustomization
-      name: apps
+      name: apps-bsord

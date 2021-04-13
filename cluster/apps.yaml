@@ -13,3 +13,19 @@ spec:
   path: ./apps
   prune: true
   validation: client
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta1
+kind: Kustomization
+metadata:
+  name: apps-bsord
+  namespace: flux-system
+spec:
+  interval: 1m0s
+  dependsOn:
+    - name: infrastructure
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
+  path: ./apps/bsord
+  prune: true
+  validation: client

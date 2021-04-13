@@ -29,7 +29,7 @@ The Git repository contains the following top directories:
 - **cluster** dir contains the Flux configuration
 - **sources** dir contains Helm repository references
 
-## Bootstrap staging and production
+## Bootstrap
 
 The clusters dir contains the Flux configuration:
 
@@ -91,3 +91,39 @@ This repository contains the following GitHub CI workflows:
 
 * the [test](./.github/workflows/test.yaml) workflow validates the Kubernetes manifests and Kustomize overlays with kubeval
 * the [e2e](./.github/workflows/e2e.yaml) workflow starts a Kubernetes cluster in CI and tests the staging setup by running Flux in Kubernetes Kind
+
+
+## Sealed Secrets:
+In the cluster SealedSecrets will be decrypted and your original secret will be deployed. You can think of a sealed secret as a deployment and the regular secret as a pod. As such, when you delete a sealedSecret the secret associated with it will also be deleted.
+
+### Pre-reqs
+Download Kubeseal (sealed-secrets CLI)
+- `wget https://github.com/bitnami-labs/sealed-secrets/releases/download/v0.10.0/kubeseal-linux-amd64 -O kubeseal`
+- `sudo install -m 755 kubeseal /usr/local/bin/kubeseal`
+
+Download the public key for the sealed-secrets instance that is running in the cluster where the secret will be deplyoed
+- `curl https://raw.githubusercontent.com/fairbanks-io/flux-gitops-apps/main/tls.crt > tls.crt`
+
+### Creating a sealed Secret
+
+Save the yaml for secret you want to deploy. 
+> Note: Do not actually create on the cluster, only dry-run.
+
+- `kubectl create secret generic mongoSecret --from-literal=mongoUri=mongodb://user:pass@dbhost.tld:27017/db --dry-run=client -o yaml > mongoSecret.yaml`
+
+Use Kubeseal to encrypt the yaml of the secret just created with the public key in use by sealed-secrets in the cluster.
+
+- `kubeseal --cert tls.crt < mongoSecret.yaml --format yaml > mongoSecret-sealed.yaml`
+
+Optional:
+Check it by applying the Sealed-Secret to the cluster
+- `kubectl apply -f mongSecret-sealed.yaml
+
+Verify the original secret was created:
+- `kubectl get secret mongoSecret -o yaml`
+
+Delete the sealed Secret and check the regular secret no longer exists
+- `kubectl delete SealedSecret mongoSecret`
+- `kubectl get secretMongoSecret`
+
+You can now include the contents of mongoSecret-Sealed.yaml in ./apps/your-app/sealed-secret.yaml.

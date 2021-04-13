@@ -34,7 +34,8 @@ metadata:
 spec:
   providerRef:
     name: slack
-  eventSeverity: info
+  eventSeverity: error
+  suspend: true
   eventSources:
     - kind: Kustomization
       name: apps-bsord

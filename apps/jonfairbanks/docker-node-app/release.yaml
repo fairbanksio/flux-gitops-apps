@@ -3,7 +3,7 @@ apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
   name: docker-node-app
-  namespace: dna
+  namespace: docker-node-app
 spec:
   chart:
     spec:
@@ -14,6 +14,22 @@ spec:
         name: jonfairbanks
         namespace: flux-system
   interval: 30s
-  targetNamespace: dna
+  targetNamespace: docker-node-app
   values:
-    replicas: 1 
+    replicas: 1
+    minAvailable: 1
+    autoscaling:
+      enabled: true
+      minReplicas: 2
+      maxReplicas: 3
+    resources:
+      requests:
+        cpu: 100m
+    ingress:
+      enabled: true
+      annotations:
+        kubernetes.io/ingress.class: nginx
+      hosts:
+        - host: kube.fairbanks.dev
+          paths:
+            - "/" 

@@ -17,6 +17,12 @@ spec:
   targetNamespace: bsord-homepage
   values:
     replicas: 1
+    autoscaling:
+      enabled: true
+      minReplicas: 2
+      maxReplicas: 3
+    limits:
+      cpu: 100m
     ingress:
       enabled: true
       annotations:

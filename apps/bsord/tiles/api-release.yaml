@@ -35,5 +35,3 @@ spec:
   valuesFrom:
   - secretKeyRef:
       name: tiles-api-values
-      key: tiles-api-values.yaml
-      namespace: tiles

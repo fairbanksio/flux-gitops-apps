@@ -22,4 +22,4 @@ spec:
       minReplicas: 2
       maxReplicas: 3
     allowedSenderDomains: "bsord.dev"
-    dkimSecretName: rcvr-relay-values
+    dkimSecretName: rcvr-relay-dkim

@@ -29,7 +29,7 @@ spec:
       annotations:
         kubernetes.io/ingress.class: nginx
       hosts:
-        - host: tiles.bsord.dev
+        - host: tiles-api.bsord.dev
           paths:
             - "/"
   valuesFrom:

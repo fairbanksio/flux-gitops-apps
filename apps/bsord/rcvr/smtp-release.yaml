@@ -1,0 +1,27 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: rcvr-smtp
+  namespace: rcvr
+spec:
+  chart:
+    spec:
+      chart: rcvr-smtp
+      sourceRef:
+        kind: HelmRepository
+        name: bsord
+        namespace: flux-system
+  interval: 30s
+  targetNamespace: rcvr
+  values:
+    dbHost: rcvr-rcvr-db-mariadb-primary
+    redisHost: rcvr-rcvr-session-cache-redis-master
+    smtpHostname: rcvr-in.bsord.dev
+    smtpAllowedHosts: bsord.dev
+    autoscaling:
+      enabled: true
+      minReplicas: 2
+  valuesFrom:
+  - kind: Secret
+    name: "rcvr-smtp-values"

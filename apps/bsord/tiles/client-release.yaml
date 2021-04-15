@@ -1,0 +1,34 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: tiles-client
+  namespace: tiles
+spec:
+  chart:
+    spec:
+      chart: tiles-client
+      sourceRef:
+        kind: HelmRepository
+        name: bsord
+        namespace: flux-system
+  interval: 30s
+  targetNamespace: tiles
+  values:
+    apiHost: tiles-api.bsord.dev
+    replicas: 1
+    minAvailable: 1
+    autoscaling:
+      enabled: true
+      minReplicas: 2
+      maxReplicas: 3
+    limits:
+      cpu: 200m
+    ingress:
+      enabled: true
+      annotations:
+        kubernetes.io/ingress.class: nginx
+      hosts:
+        - host: tiles.bsord.dev
+          paths:
+            - "/" 

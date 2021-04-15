@@ -1,0 +1,27 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: rcvr-relay
+  namespace: rcvr
+spec:
+  chart:
+    spec:
+      chart: postfix
+      sourceRef:
+        kind: HelmRepository
+        name: bsord
+        namespace: flux-system
+  interval: 30s
+  targetNamespace: rcvr
+  values:
+    replicas: 1
+    minAvailable: 1
+    autoscaling:
+      enabled: true
+      minReplicas: 2
+      maxReplicas: 3
+    allowedSenderDomains: "bsord.dev"
+  valuesFrom:
+  - kind: Secret
+    name: "rcvr-relay-values"

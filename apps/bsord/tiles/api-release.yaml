@@ -33,7 +33,7 @@ spec:
           paths:
             - "/"
   valuesFrom:
-  - kind: Secret
-    name: tiles-api-values
-    key: tiles-api-values.yaml
-    namespace: tiles
+  - secretKeyRef:
+      name: tiles-api-values
+      key: tiles-api-values.yaml
+      namespace: tiles

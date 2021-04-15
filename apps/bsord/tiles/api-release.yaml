@@ -33,5 +33,5 @@ spec:
           paths:
             - "/"
   valuesFrom:
-  - secretKeyRef:
-      name: tiles-api-values
+  - kind: Secret
+    name: "tiles-api-values"

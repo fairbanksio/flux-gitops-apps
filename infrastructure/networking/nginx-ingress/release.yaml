@@ -1,0 +1,42 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: nginx-ingress
+  namespace: kybe-system
+spec:
+  chart:
+    spec:
+      chart: nginx-ingress
+      sourceRef:
+        kind: HelmRepository
+        name: stable
+        namespace: flux-system
+  interval: 30s
+  targetNamespace: kube-system
+  values:
+    controller:
+      autoscaling:
+        enabled: true
+        minReplicas: 2
+        maxReplicas: 3
+        targetCPUUtilizationPercentage: 50
+      limits:
+        cpu: 200m
+      requests:
+        cpu: 50m
+        memory: 200Mi
+      service:
+        name: nginx-ingress-controller
+        annotations:
+          service.beta.kubernetes.io/do-loadbalancer-enable-proxy-protocol: true
+      publishService:
+        enabled: true
+      config:
+        use-proxy-protocol: true
+        proxy-body-size: 250m
+        client-max-body-size: 250m
+        proxy-connect-timeout: 60
+        proxy-read-timeout: 60
+    tcp:
+      25: rcvr/rcvr-rcvr-smtp:25

@@ -29,9 +29,6 @@ spec:
       annotations:
         kubernetes.io/ingress.class: nginx
       hosts:
-        - host: bsord.dev
-          paths:
-            - "/" 
         - host: bsord.io
           paths:
             - "/" 

@@ -32,6 +32,6 @@ spec:
         - host: bsord.dev
           paths:
             - "/" 
-        - host: bsord.io
+        - host: test1.bsord.dev
           paths:
             - "/" 

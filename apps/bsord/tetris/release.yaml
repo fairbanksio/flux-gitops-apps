@@ -28,6 +28,6 @@ spec:
       annotations:
         kubernetes.io/ingress.class: nginx
       hosts:
-        - host: tetris.bsord.dev
+        - host: squaredrop.io
           paths:
             - "/" 

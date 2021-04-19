@@ -15,7 +15,7 @@ spec:
   interval: 30s
   targetNamespace: tiles
   values:
-    apiHost: tiles-api.bsord.dev
+    apiHost: api.popcan.io
     replicas: 1
     minAvailable: 1
     autoscaling:
@@ -29,6 +29,6 @@ spec:
       annotations:
         kubernetes.io/ingress.class: nginx
       hosts:
-        - host: tiles.bsord.dev
+        - host: popcan.io
           paths:
             - "/" 

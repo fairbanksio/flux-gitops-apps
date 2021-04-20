@@ -17,7 +17,7 @@ spec:
   values:
     f5:
       subreddit: "wallstreetbets"
-      secretName: "f5-mongoUri"
+      secretName: "f5-mongouri"
   valuesFrom:
   - kind: Secret
     name: "stonks-values"
@@ -40,7 +40,7 @@ spec:
   values:
     f5:
       subreddit: "gme"
-      secretName: "f5-mongoUri"
+      secretName: "f5-mongouri"
   valuesFrom:
   - kind: Secret
     name: "stonks-values"
@@ -63,7 +63,7 @@ spec:
   values:
     f5:
       subreddit: "superstonk"
-      secretName: "f5-mongoUri"
+      secretName: "f5-mongouri"
   valuesFrom:
   - kind: Secret
     name: "stonks-values"

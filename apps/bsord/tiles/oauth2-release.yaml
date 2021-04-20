@@ -18,6 +18,7 @@ spec:
       containers:
       - args:
         - --email-domain=*
+        - --whitelist-domain=.popcan.io
         - --upstream=file:///dev/null
         - --http-address=0.0.0.0:4180
         env:

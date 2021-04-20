@@ -1,0 +1,94 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    k8s-app: oauth2-proxy
+  name: oauth2-proxy
+  namespace: tiles
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      k8s-app: oauth2-proxy
+  template:
+    metadata:
+      labels:
+        k8s-app: oauth2-proxy
+    spec:
+      containers:
+      - args:
+        - --email-domain=*
+        - --upstream=file:///dev/null
+        - --http-address=0.0.0.0:4180
+        env:
+        - name: OAUTH2_PROXY_CLIENT_ID
+          valueFrom:
+          secretKeyRef:
+            name: oauth2-secret
+            key: clientId
+        - name: OAUTH2_PROXY_CLIENT_SECRET
+          valueFrom:
+          secretKeyRef:
+            name: oauth2-secret
+            key: clientSecret
+        # docker run -ti --rm python:3-alpine python -c 'import secrets,base64; print(base64.b64encode(base64.b64encode(secrets.token_bytes(16))));'
+        - name: OAUTH2_PROXY_COOKIE_SECRET
+          valueFrom:
+          secretKeyRef:
+            name: oauth2-secret
+            key: cookieSecret
+        image: quay.io/oauth2-proxy/oauth2-proxy:latest
+        imagePullPolicy: Always
+        name: oauth2-proxy
+        ports:
+        - containerPort: 4180
+          protocol: TCP
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    k8s-app: oauth2-proxy
+  name: oauth2-proxy
+  namespace: tiles
+spec:
+  ports:
+  - name: http
+    port: 4180
+    protocol: TCP
+    targetPort: 4180
+  selector:
+    k8s-app: oauth2-proxy
+---
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: oauth2-proxy
+  namespace: tiles
+spec:
+  rules:
+  - host: auth.popcan.io
+    http:
+      paths:
+      - backend:
+          serviceName: oauth2-proxy
+          servicePort: 4180
+        path: /oauth2
+---
+apiVersion: bitnami.com/v1alpha1
+kind: SealedSecret
+metadata:
+  creationTimestamp: null
+  name: oauth2-secret
+  namespace: tiles
+spec:
+  encryptedData:
+    clientId: AgBrwYS46TkkS4xnircSTjN/LdHhYTcHiviBqycI1WWq77blyuk53r7HKqQ3msFF7wMVIfgBWXeRSB7BlQh5P+xN0WJ/sUxJg+MhellqWAiOUw9xA6R9tiWoKcibiz/SPBZ6HlG2hLrIfMe0L0nYwZdGL2vMkGy+i+DUwps7PYwPNqDhRR3yXmFaTrUdH9/2lCiPyRtnQuNuP5NLXfJe0obbxvN3HqpTK2H4jXLvtkbUigSa4tt0sxGPWoUWcZ92yQyqQ/963ZjtF0YntdYVt2ox5NvdA3yhNOdRIodKrBFy2QdsV1Axj01WOAY6vbx774PKEzWQpiVFyrYU5iXS17sRAsTqN1YfzqktShsc1lCQaSgrZ8hxO59xCP0/2Ou1Ibvcd90SYUS9dq5RUHctXcgJgOrFX92A1GgE4BGfJPh3v2ycJCtGzMvBA3JMHtBlyTBcQg0wiGB7qo65xhoKuuhrbIweJnrL02rwJPIy/sfbC8iHi1lEj++5ZR1CJ52PfGPQ9qXbIe5UpvQu3M9NINOFTbBsz3DUBlhstv4c1BcSNElXX5CxI3hYHmiQf04tgZGvQucZQQYmcP+JI2yUm7mIMcDLN4wjgFWWFKX/aLOJ6EBdhwF4qxLJZb7JMtiM27LEeje/pzg7svB9UohX0g4AyTlMjF7gE6M9PIK2G62rWUEQ3prOtgYyWmQ+OZ6D70Mhfd4SlYeco9zU4BzdyXSBD+3WCeGeA3JJDIkNa4jfn9ak1rb5nFlFnvpqAdF/JNejG7BamWJq1+UAkxkQEqgnZ4pz4bMkQeJEXoH16URlPQ==
+    clientSecret: AgA+l8xei66k8C6l7LP9IvX3rn2+xayfil/9GjdVJJsbdup2JvuR2+1C8g9q+SBthzUKB1mgDnhuUkcgzWueF/4sNjn0cUcUBvUivASNU3HsLa6AJvuvy4SxpJ8WGOTcFZg6yyIMDf2hLbA1iYkX1uFRuxGqC3KyFRH8qG/IvmduWLmdoDohZ+aQBOPIgbJWCfybrXI5ANkO3k4WVgfQEhUSnT9OmPqDYLTCNO6ObdTwKpedxDbar5iMRS45q39CsNUev5BKUbLFarkRXYZFrosvUj7HOvLRBEdiMJmSosXkWvRZy5nclbpmdezSIfkPsMEgsVGCPSLjADqvDdaz9HlXAd9Cp3aoEqzjmqYZGb9RGOXK53mywu7+wr4FaWA2RCxfwPM+JF6yDgXPShv6RozRrFpb8uMg1Gfn4GBlUtrCsbjgVn81ISBHK0DzVmyfwSZhStu/AO5Rw6L75V03wGI3CABZBgpbAmRyVSULTbSFIhgZ/gopOWNYqCkszGkRLXoAHFGBOX4eFWv8bpXj3LLHlSyroFJSu7VU9OSSCURI8UjXc7dC/076xvwFFNnHTQhzLJOnSgvi96/RJtoKGPvWIRdIXqJ4deNCKAc6A6XDwvZGMQOnKjJIhKzzCU81m7hPpDLWBofxUFzQsKK02OEVRh5pLNTzvJ5YIWb4A2ZIykmCRXKwUh/+AfKcRjZ4JlbYwCOKNF5bPvbrLUItLUrwZG4PVKF77kU=
+    cookieSecret: AgCESw/l6D15AmMkGK6nqXAMGYXBOAj4dfrQ1hXM7tz+h6RbnnKJwFDUvyY2PDsXE5r/9P/claJnHjEIhCPhUkv2UvrzC9h7t+FEOUopPPy60imocvd70hs2DVj53tbp5Hh0mB1O6S7+hAIVmcAazEJYkF6W8EyOYsOsSIn9BpN8h/YX+M3Dbjm1HOPzJ+sdvCc6SSOa0UU7XCREwlWt8bH99mQUVYFCcBdwyCB/pURyRZm4Z9pCPtteQzGqMzz89uhqSSetjFBmspxkYn5vdQddX3rgEbCOYNTDvN74bgqCSc0kXqjF0Yjqi9dodoZOSdEkE8NLfxdho1fmHMR0UhRcH6JbXF63OiHr21EBgv1G82CnnMQy6AP5ObGbIqC16C+PWHdYUF5qnAAvec0q2/Y6FrT/09Yn4ypDJgY4kL8MfAqATwL52xVTBHQr8/Rc7xN+kEbvlgDRtzaqOExEwZxOA1ecG/MEpFUJBZlNJLFaDSyVqtHlSyi+ra+qTTO9knCMAcmEkn6TTBpt1h57X++hkQgvVO0NHa2utP+8R7LKqOKeOrW6p7WvCtocqCfpKjFN4o/6qjaSJw7mqAUTrfAgdHpkcOyRLLJ1CZooXau5EuSZfihZqlJBANOfxE8GyhZUwfSSOxQi67HvQ6SQcyNoLiCAubn9G7SuIvj+O7UzkblDXvfeBO0z4pWDX53Nm/wQE/ZrLqjbzyWNvU74B+cQHW6CyGNWaKo=
+  template:
+    metadata:
+      creationTimestamp: null
+      name: oauth2-secret
+      namespace: tiles
+status: {}

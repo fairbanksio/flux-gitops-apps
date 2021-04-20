@@ -23,20 +23,20 @@ spec:
         env:
         - name: OAUTH2_PROXY_CLIENT_ID
           valueFrom:
-          secretKeyRef:
-            name: oauth2-secret
-            key: clientId
+            secretKeyRef:
+              name: oauth2-secret
+              key: clientId
         - name: OAUTH2_PROXY_CLIENT_SECRET
           valueFrom:
-          secretKeyRef:
-            name: oauth2-secret
-            key: clientSecret
+            secretKeyRef:
+              name: oauth2-secret
+              key: clientSecret
         # docker run -ti --rm python:3-alpine python -c 'import secrets,base64; print(base64.b64encode(base64.b64encode(secrets.token_bytes(16))));'
         - name: OAUTH2_PROXY_COOKIE_SECRET
           valueFrom:
-          secretKeyRef:
-            name: oauth2-secret
-            key: cookieSecret
+            secretKeyRef:
+              name: oauth2-secret
+              key: cookieSecret
         image: quay.io/oauth2-proxy/oauth2-proxy:latest
         imagePullPolicy: Always
         name: oauth2-proxy

@@ -26,7 +26,7 @@ spec:
             secretKeyRef:
               name: oauth2-secret
               key: clientId
-          - name: OAUTH2_PROXY_CLIENT_SECRET
+        - name: OAUTH2_PROXY_CLIENT_SECRET
           valueFrom:
             secretKeyRef:
               name: oauth2-secret

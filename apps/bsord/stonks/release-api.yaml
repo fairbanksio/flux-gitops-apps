@@ -8,7 +8,7 @@ spec:
   chart:
     spec:
       chart: f5-api
-      version: 1.5.0
+      version: 1.6.0
       sourceRef:
         kind: HelmRepository
         name: jonfairbanks
@@ -30,7 +30,7 @@ spec:
   chart:
     spec:
       chart: f5-api
-      version: 1.5.0
+      version: 1.6.0
       sourceRef:
         kind: HelmRepository
         name: jonfairbanks
@@ -52,7 +52,7 @@ spec:
   chart:
     spec:
       chart: f5-api
-      version: 1.5.0
+      version: 1.6.0
       sourceRef:
         kind: HelmRepository
         name: jonfairbanks

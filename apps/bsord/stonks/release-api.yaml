@@ -17,7 +17,7 @@ spec:
   targetNamespace: stonks
   values:
     image:
-      tag: 1.0.6
+      tag: 1.0.5
     f5:
       createSecret: false
       subreddit: "wallstreetbets"
@@ -41,7 +41,7 @@ spec:
   targetNamespace: stonks
   values:
     image:
-      tag: 1.0.6
+      tag: 1.0.5
     f5:
       createSecret: false
       subreddit: "gme"
@@ -65,7 +65,7 @@ spec:
   targetNamespace: stonks
   values:
     image:
-      tag: 1.0.6
+      tag: 1.0.5
     f5:
       createSecret: false
       subreddit: "superstonk"

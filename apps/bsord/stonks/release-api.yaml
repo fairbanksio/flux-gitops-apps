@@ -1,0 +1,66 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: f5-api-wsb
+  namespace: stonks
+spec:
+  chart:
+    spec:
+      chart: f5-api
+      version: 1.5.0
+      sourceRef:
+        kind: HelmRepository
+        name: jonfairbanks
+        namespace: flux-system
+  interval: 30s
+  targetNamespace: stonks
+  values:
+    f5:
+      createSecret: false
+      subreddit: "wallstreetbets"
+      secretName: "f5-mongouri-secret"
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: f5-api-gme
+  namespace: stonks
+spec:
+  chart:
+    spec:
+      chart: f5-api
+      version: 1.5.0
+      sourceRef:
+        kind: HelmRepository
+        name: jonfairbanks
+        namespace: flux-system
+  interval: 30s
+  targetNamespace: stonks
+  values:
+    f5:
+      createSecret: false
+      subreddit: "gme"
+      secretName: "f5-mongouri-secret"
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: f5-api-superstonk
+  namespace: stonks
+spec:
+  chart:
+    spec:
+      chart: f5-api
+      version: 1.5.0
+      sourceRef:
+        kind: HelmRepository
+        name: jonfairbanks
+        namespace: flux-system
+  interval: 30s
+  targetNamespace: stonks
+  values:
+    f5:
+      createSecret: false
+      subreddit: "superstonk"
+      secretName: "f5-mongouri-secret"

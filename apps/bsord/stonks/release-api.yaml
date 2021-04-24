@@ -16,6 +16,8 @@ spec:
   interval: 30s
   targetNamespace: stonks
   values:
+    image:
+      tag: 1.6.0
     f5:
       createSecret: false
       subreddit: "wallstreetbets"
@@ -38,6 +40,8 @@ spec:
   interval: 30s
   targetNamespace: stonks
   values:
+    image:
+      tag: 1.6.0
     f5:
       createSecret: false
       subreddit: "gme"
@@ -60,6 +64,8 @@ spec:
   interval: 30s
   targetNamespace: stonks
   values:
+    image:
+      tag: 1.6.0
     f5:
       createSecret: false
       subreddit: "superstonk"

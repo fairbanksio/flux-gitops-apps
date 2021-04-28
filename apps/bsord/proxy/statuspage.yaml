@@ -23,4 +23,4 @@ spec:
       - backend:
           serviceName: uptime-robot
           servicePort: 443
-        path: /WWBglsj52g
+        path: /

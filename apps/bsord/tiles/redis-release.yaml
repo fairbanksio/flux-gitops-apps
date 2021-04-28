@@ -23,6 +23,8 @@ spec:
         enabled: false
     cluster:
       slaveCount: 1
+    auth:
+      enabled: true
   valuesFrom:
   - kind: Secret
     name: "tiles-redis-values"

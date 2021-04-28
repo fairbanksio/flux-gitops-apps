@@ -15,6 +15,7 @@ metadata:
   namespace: proxy
   annotations:
     nginx.ingress.kubernetes.io/backend-protocol: "HTTPS" #important
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
 spec:
   rules:
   - host: status.bsord.io

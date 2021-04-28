@@ -6,7 +6,7 @@ metadata:
   namespace: proxy
 spec:
   type: ExternalName
-  externalName: "https://stats.uptimerobot.com/"
+  externalName: "stats.uptimerobot.com"
 ---
 apiVersion: extensions/v1beta1
 kind: Ingress

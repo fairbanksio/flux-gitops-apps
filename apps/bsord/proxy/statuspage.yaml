@@ -13,6 +13,8 @@ kind: Ingress
 metadata:
   name: uptime-robot-bsord
   namespace: proxy
+  annotations:
+    nginx.ingress.kubernetes.io/backend-protocol: "HTTPS" #important
 spec:
   rules:
   - host: status.bsord.io

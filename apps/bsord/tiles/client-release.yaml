@@ -28,8 +28,6 @@ spec:
       enabled: true
       annotations:
         kubernetes.io/ingress.class: nginx
-        nginx.ingress.kubernetes.io/auth-url: "https://auth.popcan.io/oauth2/auth"
-        nginx.ingress.kubernetes.io/auth-signin: "https://auth.popcan.io/oauth2/start"
       hosts:
         - host: popcan.io
           paths:

@@ -16,6 +16,7 @@ spec:
   targetNamespace: tiles
   values:
     apiHost: api.popcan.io
+    googleClient: 963187711576-5mbd7l390n34lj43cpfar9ustlgfemi7.apps.googleusercontent.com
     replicas: 1
     minAvailable: 1
     autoscaling:

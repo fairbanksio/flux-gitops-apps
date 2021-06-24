@@ -17,8 +17,8 @@ spec:
   values:
     dbHost: rcvr-rcvr-db-mariadb-primary
     redisHost: rcvr-rcvr-session-cache-redis-master
-    smtpHostname: rcvr-in.bsord.dev
-    smtpAllowedHosts: bsord.dev
+    smtpHostname: in.rcvr.io
+    smtpAllowedHosts: rcvr.io
     autoscaling:
       enabled: true
       minReplicas: 2

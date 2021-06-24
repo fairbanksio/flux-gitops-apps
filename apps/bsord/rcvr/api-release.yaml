@@ -19,8 +19,8 @@ spec:
     redisHost: rcvr-rcvr-session-cache-redis-master
     relayHost: rcvr-relay-postfix
     relayPort: "587"
-    senderDomain: bsord.dev
-    websiteDomain: rcvr.bsord.dev
+    senderDomain: rcvr.io
+    websiteDomain: rcvr.io
     autoscaling:
       enabled: true
       minReplicas: 2
@@ -33,7 +33,7 @@ spec:
       annotations:
         kubernetes.io/ingress.class: nginx
       hosts:
-        - host: rcvr-api.bsord.dev
+        - host: api.rcvr.io
           paths:
             - "/" 
   valuesFrom:

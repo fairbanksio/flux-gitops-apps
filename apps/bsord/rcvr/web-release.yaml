@@ -15,7 +15,7 @@ spec:
   interval: 30s
   targetNamespace: rcvr
   values:
-    apiHost: rcvr-api.bsord.dev
+    apiHost: api.rcvr.io
     replicas: 1
     minAvailable: 1
     autoscaling:
@@ -27,6 +27,6 @@ spec:
       annotations:
         kubernetes.io/ingress.class: nginx
       hosts:
-        - host: rcvr.bsord.dev
+        - host: rcvr.io
           paths:
             - "/" 

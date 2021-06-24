@@ -24,6 +24,7 @@ spec:
     autoscaling:
       enabled: true
       minReplicas: 2
+      maxReplicas: 3
     resources:
       limits:
         cpu: 200m

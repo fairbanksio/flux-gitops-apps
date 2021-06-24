@@ -17,7 +17,7 @@ spec:
   values:
     dbHost: rcvr-rcvr-db-mariadb-primary
     redisHost: rcvr-rcvr-session-cache-redis-master
-    relayHost: rcvr-relay-postfix
+    relayHost: rcvr-rcvr-relay-postfix
     relayPort: "587"
     senderDomain: rcvr.io
     websiteDomain: rcvr.io

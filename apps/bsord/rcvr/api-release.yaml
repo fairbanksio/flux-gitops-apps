@@ -24,11 +24,11 @@ spec:
     autoscaling:
       enabled: true
       minReplicas: 2
-      maxReplicas: 3
+      maxReplicas: 2
     resources:
       limits:
         cpu: 200m
-        memory: 250Mi
+        memory: 500Mi
     ingress:
       enabled: true
       annotations:

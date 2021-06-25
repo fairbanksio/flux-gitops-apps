@@ -117,7 +117,7 @@ Use Kubeseal to encrypt the yaml of the secret just created with the public key 
 
 Optional:
 Check it by applying the Sealed-Secret to the cluster
-- `kubectl apply -f mongSecret-sealed.yaml
+- `kubectl apply -f mongSecret-sealed.yaml`
 
 Verify the original secret was created:
 - `kubectl get secret mongoSecret -o yaml`

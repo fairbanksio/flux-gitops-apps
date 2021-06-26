@@ -1,0 +1,39 @@
+
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: yo-client
+  namespace: f5oclock
+spec:
+  chart:
+    spec:
+      chart: yo-client
+      version: 0.1.0
+      sourceRef:
+        kind: HelmRepository
+        name: jonfairbanks
+        namespace: flux-system
+  dependsOn:
+    - name: yo-api
+  interval: 30s
+  targetNamespace: yo
+  values:
+    ingress:
+      enabled: true
+      hosts:
+        - host: fbnks.io
+          paths:
+            - "/"
+
+    apiURL: "https://api.fbnks.io/api/"
+    auth: "false"
+    auth0Client: "A4TKb0LUTS7QqOj8oNjNL5g3FEyaTdyK"
+    auth0Domain: fairbanks.auth0.com
+    baseURL: "http://fbnks.io"
+    namePlaceholder: Rick
+    socketURL: "https://fbnks.io"
+    urlPlaceholder: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+    apiServiceName: yo-api
+    apiServicePort: 80
+    

@@ -33,6 +33,3 @@ spec:
         - host: fairbanks.dev
           paths:
             - "/"
-        - host: fbnks.io
-          paths:
-            - "/"

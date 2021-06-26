@@ -17,7 +17,7 @@ that can create repositories (check all permissions under `repo`).
 Install the CLI by downloading precompiled binaries using a Bash script:
 
 ```sh
-curl -s https://toolkit.fluxcd.io/install.sh | sudo bash
+curl -s https://fluxcd.io/install.sh | sudo bash
 ```
 
 ## Repository structure

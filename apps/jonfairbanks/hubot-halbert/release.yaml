@@ -22,5 +22,4 @@ spec:
       requests:
         cpu: 100m
     slack:
-      token: 
-        secretName: "hubot-slack-token"
+      secretName: "hubot-slack-token"

@@ -1,0 +1,16 @@
+apiVersion: bitnami.com/v1alpha1
+kind: SealedSecret
+metadata:
+  creationTimestamp: null
+  name: hubot-slack-token
+  namespace: halbert
+spec:
+  encryptedData:
+    hubot-slack-token: AgB5SWxWwJ8zgvDdkNrYh/ioD1LAKd5tQ+EYa5QOF/2/witEb9e1WtSqJqeqxhdDC9OW5B2VkZXHskmbAQqon7gzHtBniqq80kRlGU0zC6HgFaY3lo6aI5OcaMS0ZyB13g2oDvPjTC/NrUnKEEb2Og/YnAEfewlsSlqAShfsLDlGuRrr1+J2xRT4kvxcOYkUBVNIeu5l2/Fvm7wq+dQlQJpGWt1fBC7Pz/poZIc/nVb+8Xpw2g/1suOIhVvGXapS7nIhx1SIUV1OGDC7gzdkmI1qZO9DIYFfWajA2q8ykT9fT1GayFvkuqsSrczTcPtZ4HhxotcudAelJRkcznH+db1obr8mAjLXMv70bN4FlsF5Wb03A0fxuE8XEWmRHXsUoKGrfKJ8xnWWPpU6R/JCOBNUllj79L88LftX5J5xypT5K6WynC2YHqTXCD0r03RuI8Zs15aVBXIO8Bv2JPc6tc84LIaNppVMyJJvpzEHBx4LiNLzxlNaU1R9WOV7EEBZRdrU+3aRMFSFBlx8Dr4WrJvEOuchkMhELJ4N1/fUEtZjYU9Sqbe9JppPgLX4o/T3H8H0yglkK9SdOHXjAzpP7tQ8M+Vo/wFIUrVg4Z+ansjGtVBHIMaeEUk8lAfGJWZwUcS2PocwFrTKnkz3Ze9av/dpzyJ+L1lG+nRENUiSmXkQcSAQV0xv46CaUZSVcuoAf26ZKaGY56k+xrbrwqHLaKJZiO6QYGW16hRTmibNbUkhUMKTx6n3EC4+JQ==
+  template:
+    data: null
+    metadata:
+      creationTimestamp: null
+      name: hubot-slack-token
+      namespace: halbert
+

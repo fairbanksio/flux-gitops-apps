@@ -14,7 +14,7 @@ spec:
         name: jonfairbanks
         namespace: flux-system
   interval: 30s
-  targetNamespace: f5oclock
+  targetNamespace: yo
   values:
     image:
       tag: latest

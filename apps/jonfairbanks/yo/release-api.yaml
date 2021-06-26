@@ -18,13 +18,12 @@ spec:
   values:
     image:
       tag: latest
-    secretName: yo-mongoUri
+    secretName: yo-mongouri
     apiURL: "https://api.fbnks.io/api/"
     authDomain: "fairbanks.auth0.com"
     baseURL: "https://fbnks.io"
     enableAuth: "true"
     errorURL: "https://fbnks.io/missing.html"
-    secretName: yo-mongoUri
     
     ingress:
       annotations:

@@ -22,7 +22,4 @@ spec:
       enabled: true
       annotations:
         kubernetes.io/ingress.class: nginx
-      hosts:
-        - host: wp.bsord.dev
-          paths:
-            - "/" 
+      hostname: wp.bsord.dev 

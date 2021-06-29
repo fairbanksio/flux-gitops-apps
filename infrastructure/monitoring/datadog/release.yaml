@@ -12,7 +12,7 @@ spec:
         kind: HelmRepository
         name: stable
         namespace: flux-system
-  interval: 30s
+  interval: 1h
   targetNamespace: datadog
   values:
     datadog:

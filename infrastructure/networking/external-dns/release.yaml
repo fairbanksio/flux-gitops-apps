@@ -35,5 +35,4 @@ spec:
       email: sharedcluster@gmail.com
       secretName: cloudflare-shared
     domainFilters:
-      - "bsord.dev"
       - "fairbanks.dev" 

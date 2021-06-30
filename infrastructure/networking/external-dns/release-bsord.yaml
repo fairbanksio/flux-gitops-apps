@@ -35,6 +35,7 @@ spec:
       secretName: cloudflare-bsord
     domainFilters:
       - "bsord.io"
+      - "bsord.dev"
       - "popcan.io"
       - "squaredrop.io"
       - "rcvr.io"

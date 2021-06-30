@@ -29,6 +29,13 @@ spec:
       enabled: true
       annotations:
         kubernetes.io/ingress.class: nginx
+        nginx.ingress.kubernetes.io/configuration-snippet: |
+          if ($host = "www.fairbanks.io") {
+              return 308 https://fairbanks.io$request_uri;
+          }
+          if ($host = "www.fairbanks.dev") {
+              return 308 https://fairbanks.dev$request_uri;
+          }
       hosts:
         - host: fairbanks.dev
           paths:

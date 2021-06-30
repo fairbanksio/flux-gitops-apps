@@ -32,7 +32,19 @@ spec:
           if ($host = "www.bsord.io") {
               return 308 https://bsord.io$request_uri;
           }
+          if ($host = "www.bsord.dev") {
+              return 308 https://bsord.dev$request_uri;
+          }
       hosts:
         - host: bsord.io
+          paths:
+            - "/"
+        - host: www.bsord.io
+          paths:
+            - "/" 
+        - host: bsord.dev
+          paths:
+            - "/"
+        - host: www.bsord.dev
           paths:
             - "/" 

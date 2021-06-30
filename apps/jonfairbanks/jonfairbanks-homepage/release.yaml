@@ -28,17 +28,17 @@ spec:
     ingress:
       enabled: true
       annotations:
-        nginx.ingress.kubernetes.io/configuration-snippet: |
-          more_set_headers "Request-Id: $req_id";
-        nginx.ingress.kubernetes.io/configuration-snippet: |
-          if ($host = "https://www.fairbanks.dev") {
-              return 308 https://fairbanks.dev$request_uri;
-          }
         kubernetes.io/ingress.class: nginx
       hosts:
         - host: fairbanks.dev
           paths:
             - "/"
+        - host: www.fairbanks.dev
+          paths:
+            - "/"
         - host: fairbanks.io
+          paths:
+            - "/"
+        - host: www.fairbanks.io
           paths:
             - "/"

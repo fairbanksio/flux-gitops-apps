@@ -36,6 +36,6 @@ spec:
         - host: bsord.io
           paths:
             - "/"
-      - host: www.bsord.io
-        paths:
-          - "/" 
+        - host: www.bsord.io
+          paths:
+            - "/" 

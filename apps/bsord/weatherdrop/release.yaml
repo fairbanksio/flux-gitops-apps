@@ -1,0 +1,40 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: weatherdrop
+  namespace: weatherdrop
+spec:
+  chart:
+    spec:
+      chart: weatherdrop
+      sourceRef:
+        kind: HelmRepository
+        name: bsord
+        namespace: flux-system
+  interval: 30s
+  targetNamespace: weatherdrop
+  values:
+    replicas: 1
+    minAvailable: 1
+    autoscaling:
+      enabled: true
+      minReplicas: 2
+      maxReplicas: 3
+    limits:
+      cpu: 100m
+    ingress:
+      enabled: true
+      annotations:
+        kubernetes.io/ingress.class: nginx
+        nginx.ingress.kubernetes.io/configuration-snippet: |
+          if ($host = "www.weatherdrop.io") {
+              return 308 https://weatherdrop.io$request_uri;
+          }
+      hosts:
+        - host: weatherdrop.io
+          paths:
+            - "/" 
+        - host: www.weatherdrop.io
+          paths:
+            - "/" 

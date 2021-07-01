@@ -39,7 +39,7 @@ spec:
     auth: "false"
     auth0Client: "A4TKb0LUTS7QqOj8oNjNL5g3FEyaTdyK"
     auth0Domain: fairbanks.auth0.com
-    baseURL: "http://fbnks.io"
+    baseURL: "https://fbnks.io"
     namePlaceholder: Rick
     socketURL: "https://fbnks.io"
     urlPlaceholder: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"

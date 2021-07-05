@@ -9,7 +9,7 @@ spec:
   chart:
     spec:
       chart: yo-client
-      version: 0.1.0
+      version: 0.1.1
       sourceRef:
         kind: HelmRepository
         name: jonfairbanks
@@ -41,7 +41,7 @@ spec:
     auth0Domain: fairbanks.auth0.com
     baseURL: "https://fbnks.io"
     namePlaceholder: Rick
-    socketURL: "https://api.fbnks.io"
+    socketURL: "https://api.fbnks.io/api"
     urlPlaceholder: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
     apiServiceName: yo-yo-api
     apiServicePort: 80

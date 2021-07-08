@@ -34,7 +34,7 @@ metadata:
 spec:
   providerRef:
     name: slack
-  eventSeverity: error
+  eventSeverity: info
   suspend: true
   eventSources:
     - kind: Kustomization

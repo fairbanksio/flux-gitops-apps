@@ -45,7 +45,7 @@ spec:
 apiVersion: notification.toolkit.fluxcd.io/v1beta1
 kind: Alert
 metadata:
-  name: flux-gitops-apps
+  name: helm-release-changes
   namespace: flux-system
 spec:
   providerRef:

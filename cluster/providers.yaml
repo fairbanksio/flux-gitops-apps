@@ -41,3 +41,16 @@ spec:
       name: apps-bsord
     - kind: Kustomization
       name: apps-jonfairbanks
+---
+apiVersion: notification.toolkit.fluxcd.io/v1beta1
+kind: Alert
+metadata:
+  name: flux-gitops-apps
+  namespace: flux-system
+spec:
+  providerRef:
+    name: slack
+  eventSeverity: info
+  eventSources:
+    - kind: HelmRelease
+      name: '*'

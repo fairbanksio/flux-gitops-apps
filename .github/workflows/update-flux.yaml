@@ -17,7 +17,7 @@ jobs:
         id: update
         run: |
           flux install --path=cluster \
-            --export > ./clusters/production/flux-system/gotk-components.yaml
+            --export > ./cluster/flux-system/gotk-components.yaml
 
           VERSION="$(flux -v)"
           echo "::set-output name=flux_version::$VERSION"

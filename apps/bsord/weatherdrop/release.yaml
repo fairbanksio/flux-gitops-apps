@@ -30,7 +30,10 @@ spec:
       annotations:
         kubernetes.io/ingress.class: nginx
         nginx.ingress.kubernetes.io/configuration-snippet: |
-          if ($host = "www.weatherdrop.io") {
+          if ($host = "$scheme://www.weatherdrop.io") {
+              return 308 https://weatherdrop.io$request_uri;
+          }
+          if ($host = "http://weatherdrop.io") {
               return 308 https://weatherdrop.io$request_uri;
           }
       hosts:

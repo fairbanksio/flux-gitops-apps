@@ -16,7 +16,7 @@ jobs:
       - name: Check for updates
         id: update
         run: |
-          flux install --path=cluster \
+          flux install \
             --export > ./cluster/flux-system/gotk-components.yaml
 
           VERSION="$(flux -v)"

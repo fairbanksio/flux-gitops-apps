@@ -38,5 +38,3 @@ spec:
         client-max-body-size: 250m
         proxy-connect-timeout: "60"
         proxy-read-timeout: "60"
-    tcp:
-      25: rcvr/rcvr-rcvr-smtp:25

@@ -23,8 +23,8 @@ spec:
     replica:
       persistence:
         enabled: false
-    replica:
       replicaCount: 1
+      
   valuesFrom:
   - kind: Secret
     name: "rcvr-redis-values"

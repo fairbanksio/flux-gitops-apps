@@ -2,7 +2,7 @@
 apiVersion: notification.toolkit.fluxcd.io/v1beta1
 kind: Alert
 metadata:
-  name: weatherdrop-helm
+  name: bsord-homepage-helm
   namespace: flux-system
 spec:
   providerRef:
@@ -11,4 +11,4 @@ spec:
   eventSources:
     - kind: HelmRelease
       name: '*'
-      namespace: weatherdrop
+      namespace: bsord-homepage

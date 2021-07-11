@@ -28,7 +28,6 @@ spec:
       pdb:
         enabled: true
         minAvailable: 1
-    
-  valuesFrom:
-  - kind: Secret
-    name: "rcvr-db-values"
+    auth:
+      database: rcvr
+      existingSecret: rcvr-db-values

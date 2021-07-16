@@ -20,18 +20,18 @@ spec:
   valuesFrom:
   - kind: Secret
     name: linkerd-identity
-    valuesKey: ca.crt
-    targetPath: global.identityTrustAnchorsPEM
+    valuesKey: identityTrustAnchorsPEM
+    targetPath: identityTrustAnchorsPEM
   - kind: Secret
     name: linkerd-identity
-    valuesKey: issuer.crt
+    valuesKey: identity.issuer.tls.crtPEM
     targetPath: identity.issuer.tls.crtPEM
   - kind: Secret
     name: linkerd-identity
-    valuesKey: issuer.key
+    valuesKey: identity.issuer.tls.keyPEM
     targetPath: identity.issuer.tls.keyPEM
   - kind: Secret
     name: linkerd-identity
-    valuesKey: crtExpiry
+    valuesKey: identity.issuer.crtExpiry
     targetPath: identity.issuer.crtExpiry
     

@@ -19,5 +19,19 @@ spec:
     installNamespace: false
   valuesFrom:
   - kind: Secret
-    name: "linkerd-identity"
+    name: linkerd-identity
+    valuesKey: identityTrustAnchorsPEM
+    targetPath: identityTrustAnchorsPEM
+  - kind: Secret
+    name: linkerd-identity
+    valuesKey: identity.issuer.tls.crtPEM
+    targetPath: identity.issuer.tls.crtPEM
+  - kind: Secret
+    name: linkerd-identity
+    valuesKey: identity.issuer.tls.keyPEM
+    targetPath: identity.issuer.tls.keyPEM
+  - kind: Secret
+    name: linkerd-identity
+    valuesKey: identity.issuer.crtExpiry
+    targetPath: identity.issuer.crtExpiry
     

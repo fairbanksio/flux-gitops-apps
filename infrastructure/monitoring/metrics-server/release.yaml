@@ -10,7 +10,7 @@ spec:
       chart: metrics-server
       sourceRef:
         kind: HelmRepository
-        name: stable
+        name: bitnami
         namespace: flux-system
   interval: 1h
   targetNamespace: kube-system

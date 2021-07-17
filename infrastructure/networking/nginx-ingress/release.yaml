@@ -10,7 +10,7 @@ spec:
       chart: nginx-ingress
       sourceRef:
         kind: HelmRepository
-        name: stable
+        name: kubernetes
         namespace: flux-system
   interval: 1h
   targetNamespace: kube-system

@@ -10,7 +10,7 @@ spec:
       chart: node-problem-detector
       sourceRef:
         kind: HelmRepository
-        name: stable
+        name: deliveryhero
         namespace: flux-system
   interval: 1h
   targetNamespace: kube-system

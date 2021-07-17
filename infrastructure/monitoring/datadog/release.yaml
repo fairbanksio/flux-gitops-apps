@@ -14,16 +14,7 @@ spec:
         namespace: flux-system
   interval: 1h
   targetNamespace: datadog
-  values:
-    datadog:
-      processAgent:
-        processCollection: true
-      apm:
-        enabled: true
-      dogstatsd:
-        useHostPort: true
-      networkMonitoring:
-        enabled: true
+
   valuesFrom:
   - kind: Secret
     name: "datadog-values"

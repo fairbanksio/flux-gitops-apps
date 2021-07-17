@@ -19,13 +19,9 @@ spec:
       processAgent:
         enabled: true
         processCollection: true
-      nodeLabelsAsTags: true
-      podAnnotationsAsTags: true
-      podLabelsAsTags: true
       apm:
         enabled: true
       dogstatsd:
-        nonLocalTraffic: true
         useHostPort: true
       networkMonitoring:
         enabled: true

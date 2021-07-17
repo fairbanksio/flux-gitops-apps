@@ -14,7 +14,10 @@ spec:
         namespace: flux-system
   interval: 1h
   targetNamespace: datadog
-
+  values:
+    datadog:
+      processAgent:
+        processCollection: true
   valuesFrom:
   - kind: Secret
     name: "datadog-values"

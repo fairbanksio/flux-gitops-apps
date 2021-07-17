@@ -18,8 +18,9 @@ spec:
     datadog:
       processAgent:
         processCollection: true
-      apm:
-        enabled: true
+      dogstatsd:
+        useHostPort: true
+
   valuesFrom:
   - kind: Secret
     name: "datadog-values"

@@ -20,7 +20,8 @@ spec:
         processCollection: true
       dogstatsd:
         useHostPort: true
-
+      networkMonitoring:
+        enabled: true
   valuesFrom:
   - kind: Secret
     name: "datadog-values"

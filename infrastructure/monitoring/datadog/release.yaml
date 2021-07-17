@@ -10,7 +10,7 @@ spec:
       chart: datadog
       sourceRef:
         kind: HelmRepository
-        name: stable
+        name: datadog
         namespace: flux-system
   interval: 1h
   targetNamespace: datadog

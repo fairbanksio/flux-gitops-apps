@@ -17,7 +17,6 @@ spec:
   values:
     datadog:
       processAgent:
-        enabled: true
         processCollection: true
       apm:
         enabled: true
@@ -25,12 +24,6 @@ spec:
         useHostPort: true
       networkMonitoring:
         enabled: true
-      securityAgent:
-        runtime:
-          enabled: true
-      systemProbe:
-        enableTCPQueueLength: true
-        enableOOMKill: true
   valuesFrom:
   - kind: Secret
     name: "datadog-values"

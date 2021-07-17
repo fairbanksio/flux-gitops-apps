@@ -10,11 +10,11 @@ kind: Namespace
 metadata:
   name: linkerd-viz
   labels:
-    config.linkerd.io/admission-webhooks: enabled
+    linkerd.io/inject: enabled
 ---
 apiVersion: v1
 kind: Namespace
 metadata:
   name: linkerd-jaeger
   labels:
-    config.linkerd.io/admission-webhooks: enabled
+    linkerd.io/inject: enabled

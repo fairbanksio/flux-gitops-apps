@@ -39,7 +39,7 @@ apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
   name: linkerd-viz
-  namespace: linkerd
+  namespace: linkerd-viz
 spec:
   chart:
     spec:
@@ -49,16 +49,16 @@ spec:
         name: linkerd
         namespace: flux-system
   interval: 1h
-  targetNamespace: linkerd
+  targetNamespace: linkerd-viz
   values:
-    namespace: linkerd
+    namespace: linkerd-viz
     installNamespace: false
 ---
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
   name: linkerd-jaeger
-  namespace: linkerd
+  namespace: linkerd-jaeger
 spec:
   chart:
     spec:
@@ -68,8 +68,8 @@ spec:
         name: linkerd
         namespace: flux-system
   interval: 1h
-  targetNamespace: linkerd
+  targetNamespace: linkerd-jaeger
   values:
-    namespace: linkerd
+    namespace: linkerd-jaeger
     installNamespace: false
     

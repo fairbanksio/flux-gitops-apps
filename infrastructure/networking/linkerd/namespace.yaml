@@ -11,6 +11,8 @@ metadata:
   name: linkerd-viz
   annotations:
     linkerd.io/inject: enabled
+  labels:
+    linkerd.io/extension: viz
 ---
 apiVersion: v1
 kind: Namespace

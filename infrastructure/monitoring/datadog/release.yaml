@@ -18,6 +18,8 @@ spec:
     datadog:
       processAgent:
         processCollection: true
+      apm:
+        enabled: true
   valuesFrom:
   - kind: Secret
     name: "datadog-values"

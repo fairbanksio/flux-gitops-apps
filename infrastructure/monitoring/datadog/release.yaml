@@ -27,8 +27,14 @@ spec:
       dogstatsd:
         nonLocalTraffic: true
         useHostPort: true
-      systemProbe:
+      networkMonitoring:
         enabled: true
+      securityAgent:
+        runtime:
+          enabled: true
+      systemProbe:
+        enableTCPQueueLength: true
+        enableOOMKill: true
   valuesFrom:
   - kind: Secret
     name: "datadog-values"

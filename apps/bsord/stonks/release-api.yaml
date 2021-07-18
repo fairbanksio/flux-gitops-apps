@@ -22,7 +22,7 @@ spec:
       createSecret: false
       subreddit: "wallstreetbets"
       secretName: "f5-mongouri-secret"
-  podAnnotations:
+    podAnnotations:
       linkerd.io/inject: enabled
 ---
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
@@ -48,7 +48,7 @@ spec:
       createSecret: false
       subreddit: "gme"
       secretName: "f5-mongouri-secret"
-  podAnnotations:
+    podAnnotations:
       linkerd.io/inject: enabled
 ---
 apiVersion: helm.toolkit.fluxcd.io/v2beta1

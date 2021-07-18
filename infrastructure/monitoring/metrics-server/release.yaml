@@ -15,7 +15,7 @@ spec:
   interval: 1h
   targetNamespace: kube-system
   values:
-    hostNetwork: true
+    hostNetwork: false
     replicas: 2
     podDisruptionBudget:
       enabled: true

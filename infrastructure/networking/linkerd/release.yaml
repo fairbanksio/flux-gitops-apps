@@ -17,6 +17,35 @@ spec:
   values:
     namespace: linkerd
     installNamespace: false
+
+    # High Availability config values
+    enablePodAntiAffinity: true
+    proxy:
+      resources:
+        cpu:
+          request: 100m
+        memory:
+          limit: 250Mi
+          request: 20Mi
+    controllerReplicas: 3
+    controllerResources: &controller_resources
+      cpu: &controller_resources_cpu
+        limit: ""
+        request: 100m
+      memory:
+        limit: 250Mi
+        request: 50Mi
+    destinationResources: *controller_resources
+    identityResources:
+      cpu: *controller_resources_cpu
+      memory:
+        limit: 250Mi
+        request: 10Mi
+    heartbeatResources: *controller_resources
+    proxyInjectorResources: *controller_resources
+    webhookFailurePolicy: Fail
+    spValidatorResources: *controller_resources
+
   valuesFrom:
   - kind: Secret
     name: linkerd-identity

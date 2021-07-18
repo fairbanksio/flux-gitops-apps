@@ -8,6 +8,7 @@ spec:
   chart:
     spec:
       chart: paypal-sandbox-dashboard
+      version: 0.4.x
       sourceRef:
         kind: HelmRepository
         name: fairbanks-io
@@ -17,6 +18,8 @@ spec:
   values:
     replicas: 1
     minAvailable: 1
+    podAnnotations:
+      linkerd.io/inject: enabled
     autoscaling:
       enabled: true
       minReplicas: 2

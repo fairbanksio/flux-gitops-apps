@@ -19,6 +19,8 @@ spec:
   interval: 30s
   targetNamespace: f5oclock
   values:
+    podAnnotations:
+      linkerd.io/inject: enabled
     f5:
       secretName: "f5-mongouri"
     ingress:

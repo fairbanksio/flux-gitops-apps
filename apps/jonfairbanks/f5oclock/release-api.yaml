@@ -8,7 +8,7 @@ spec:
   chart:
     spec:
       chart: f5-api
-      version: 1.6.0
+      version: 1.6.x
       sourceRef:
         kind: HelmRepository
         name: jonfairbanks
@@ -16,6 +16,8 @@ spec:
   interval: 30s
   targetNamespace: f5oclock
   values:
+    podAnnotations:
+      linkerd.io/inject: enabled
     image:
       tag: 1.0.5
     f5:

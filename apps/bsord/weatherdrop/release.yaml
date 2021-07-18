@@ -42,4 +42,6 @@ spec:
             - "/" 
         - host: www.weatherdrop.io
           paths:
-            - "/" 
+            - "/"
+    podAnnotations:
+      linkerd.io/inject: enabled

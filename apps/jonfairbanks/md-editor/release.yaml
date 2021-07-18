@@ -18,6 +18,8 @@ spec:
   values:
     replicas: 1
     minAvailable: 1
+    podAnnotations:
+      linkerd.io/inject: enabled
     autoscaling:
       enabled: true
       minReplicas: 2
@@ -33,5 +35,3 @@ spec:
         - host: md.fairbanks.dev
           paths:
             - "/"
-    podAnnotations:
-      linkerd.io/inject: enabled

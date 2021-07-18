@@ -18,6 +18,8 @@ spec:
   values:
     image:
       tag: latest
+    podAnnotations:
+      linkerd.io/inject: enabled
     secretName: yo-mongouri
     apiURL: "https://api.fbnks.io/api/"
     authDomain: "fairbanks.auth0.com"
@@ -34,5 +36,3 @@ spec:
         paths:
         - /
       tls: []
-    podAnnotations:
-      linkerd.io/inject: enabled

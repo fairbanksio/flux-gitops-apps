@@ -16,10 +16,10 @@ spec:
   interval: 30s
   targetNamespace: f5oclock
   values:
+    podAnnotations:
+      linkerd.io/inject: enabled
     image:
       tag: 1.0.5
     f5:
       createSecret: false
       secretName: "f5-mongouri"
-  podAnnotations:
-    linkerd.io/inject: enabled

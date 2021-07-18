@@ -19,6 +19,8 @@ spec:
   interval: 30s
   targetNamespace: yo
   values:
+    podAnnotations:
+      linkerd.io/inject: enabled
     ingress:
       enabled: true
       annotations:

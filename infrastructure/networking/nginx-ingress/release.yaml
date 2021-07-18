@@ -16,6 +16,8 @@ spec:
   targetNamespace: kube-system
   values:
     controller:
+      annotations:
+        linkerd.io/inject: enabled
       autoscaling:
         enabled: true
         minReplicas: 2

@@ -18,6 +18,8 @@ spec:
   values:
     replicas: 1
     minAvailable: 1
+    annotations:
+      linkerd.io/inject: enabled
     autoscaling:
       enabled: true
       minReplicas: 2

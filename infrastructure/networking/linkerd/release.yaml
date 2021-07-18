@@ -19,7 +19,7 @@ spec:
     installNamespace: false
 
     # High Availability config values
-    enablePodAntiAffinity: true
+    #enablePodAntiAffinity: true
 
     controllerReplicas: 2
 

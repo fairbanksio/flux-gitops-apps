@@ -30,4 +30,6 @@ spec:
       hosts:
         - host: squaredrop.io
           paths:
-            - "/" 
+            - "/"
+    podAnnotations:
+      linkerd.io/inject: enabled

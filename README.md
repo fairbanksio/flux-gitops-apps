@@ -127,3 +127,4 @@ Delete the sealed Secret and check the regular secret no longer exists
 - `kubectl get secretMongoSecret`
 
 You can now include the contents of mongoSecret-Sealed.yaml in ./apps/your-app/sealed-secret.yaml.
+

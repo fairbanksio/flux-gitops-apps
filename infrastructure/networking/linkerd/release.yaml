@@ -21,7 +21,7 @@ spec:
     # High Availability config values
     enablePodAntiAffinity: true
 
-    controllerReplicas: 3
+    controllerReplicas: 1
 
   valuesFrom:
   - kind: Secret

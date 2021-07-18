@@ -29,3 +29,5 @@ spec:
         - host: f5.fairbanks.dev
           paths:
             - "/"
+    podAnnotations:
+      linkerd.io/inject: enabled

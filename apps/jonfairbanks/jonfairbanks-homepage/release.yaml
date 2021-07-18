@@ -49,3 +49,5 @@ spec:
         - host: www.fairbanks.io
           paths:
             - "/"
+    podAnnotations:
+      linkerd.io/inject: enabled

@@ -35,6 +35,9 @@ spec:
           paths:
             - "/"
 
+    podAnnotations:
+      linkerd.io/inject: enabled
+
     apiURL: "https://api.fbnks.io/api/"
     auth: "true"
     auth0Client: "A4TKb0LUTS7QqOj8oNjNL5g3FEyaTdyK"

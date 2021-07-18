@@ -21,3 +21,5 @@ spec:
     f5:
       createSecret: false
       secretName: "f5-mongouri"
+  podAnnotations:
+    linkerd.io/inject: enabled

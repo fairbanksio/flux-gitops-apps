@@ -16,6 +16,8 @@ spec:
   targetNamespace: kube-system
   values:
     hostNetwork: true
+    extraArgs:
+      - --kubelet-preferred-address-types=InternalIP
     replicas: 2
     podDisruptionBudget:
       enabled: true

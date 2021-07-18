@@ -32,4 +32,6 @@ spec:
       hosts:
         - host: md.fairbanks.dev
           paths:
-            - "/" 
+            - "/"
+    podAnnotations:
+      linkerd.io/inject: enabled

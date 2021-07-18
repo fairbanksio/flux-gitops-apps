@@ -34,3 +34,5 @@ spec:
         paths:
         - /
       tls: []
+    podAnnotations:
+      linkerd.io/inject: enabled

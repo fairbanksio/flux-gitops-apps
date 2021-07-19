@@ -43,7 +43,7 @@ spec:
     auth0Domain: fairbanks.auth0.com
     baseURL: "https://fbnks.io"
     namePlaceholder: Rick
-    socketURL: "https://api.fbnks.io/api"
+    socketURL: "https://api.fbnks.io/api/socket.io"
     urlPlaceholder: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
     apiServiceName: yo-yo-api
     apiServicePort: 80

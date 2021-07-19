@@ -16,7 +16,7 @@ spec:
   targetNamespace: kube-system
   values:
     controller:
-      annotations:
+      podAnnotations:
         linkerd.io/inject: enabled
       autoscaling:
         enabled: true

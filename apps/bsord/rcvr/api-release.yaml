@@ -16,6 +16,8 @@ spec:
   interval: 30s
   targetNamespace: rcvr
   values:
+    podAnnotations:
+      linkerd.io/inject: enabled
     dbHost: rcvr-rcvr-db-mariadb-primary
     redisHost: rcvr-rcvr-session-cache-redis-master
     relayHost: out.rcvr.io

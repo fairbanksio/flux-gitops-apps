@@ -19,8 +19,13 @@ spec:
   interval: 30s
   targetNamespace: yo
   values:
+    replicas: 1
+    minAvailable: 1
     podAnnotations:
       linkerd.io/inject: enabled
+    resources:
+      requests:
+        cpu: 10m
     ingress:
       enabled: true
       annotations:

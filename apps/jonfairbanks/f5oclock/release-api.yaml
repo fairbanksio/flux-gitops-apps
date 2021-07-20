@@ -16,8 +16,17 @@ spec:
   interval: 30s
   targetNamespace: f5oclock
   values:
+    replicas: 1
+    minAvailable: 1
     podAnnotations:
       linkerd.io/inject: enabled
+    autoscaling:
+      enabled: true
+      minReplicas: 2
+      maxReplicas: 3
+    resources:
+      requests:
+        cpu: 50m
     image:
       tag: 1.0.5
     f5:

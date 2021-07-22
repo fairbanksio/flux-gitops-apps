@@ -13,13 +13,15 @@ spec:
         kind: HelmRepository
         name: jonfairbanks
         namespace: flux-system
-  interval: 30s
+  interval: 300s
   targetNamespace: halbert
   values:
     replicas: 1
     minAvailable: 1
+    podAnnotations:
+      linkerd.io/inject: enabled
     resources:
       requests:
-        cpu: 100m
+        cpu: 20m
     slack:
       secretName: "hubot-slack-token"

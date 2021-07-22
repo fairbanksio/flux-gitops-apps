@@ -99,5 +99,7 @@ spec:
     crd:
       create: false
     meshProvider: linkerd
+    rbac:
+      create: true
     metricsServer: "http://prometheus.linkerd-viz.svc.cluster.local:9090"
     

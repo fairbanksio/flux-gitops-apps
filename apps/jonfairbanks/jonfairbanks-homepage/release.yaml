@@ -26,7 +26,7 @@ spec:
       maxReplicas: 3
     resources:
       requests:
-        cpu: 100m
+        cpu: 10m
     ingress:
       enabled: true
       annotations:

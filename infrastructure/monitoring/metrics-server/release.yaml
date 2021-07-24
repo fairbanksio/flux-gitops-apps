@@ -18,6 +18,7 @@ spec:
     hostNetwork: true
     extraArgs:
       kubelet-preferred-address-types: InternalIP
+      kubelet-insecure-tls: true
     replicas: 2
     podDisruptionBudget:
       enabled: true

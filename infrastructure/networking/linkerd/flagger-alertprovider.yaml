@@ -1,0 +1,27 @@
+apiVersion: flagger.app/v1beta1
+kind: AlertProvider
+metadata:
+  name: slack
+  namespace: linkerd
+spec:
+  type: slack
+  channel: server-ops-alerts
+  username: flagger
+  secretRef:
+    name: flagger-slack-url
+---
+apiVersion: bitnami.com/v1alpha1
+kind: SealedSecret
+metadata:
+  creationTimestamp: null
+  name: flagger-slack-url
+  namespace: linkerd
+spec:
+  encryptedData:
+    address: AgCVA8jAe/yNKTxF+VglJwj8doD9JAy0x0hdf+Y3tP5BDVBIJo5GhKJoeTfU9abHlIW3JaWQAF4lUwqJWcDPqb22IsehxAClujTm8r9yIUPmlQhAvaRrom6cTbBRQxzYJG8VGnTSQmELx3H346+MvPu0SPid4QTIToDDDy/Iq/Msp963yjOBpr+HplfLRPspVzR0RpBdlr6ptcl36A5M9NEzR7bg980BM2GJfTZEXrJyD0mGerqDV2R3w0z0b5dDqpxesr1m3qusIZGCfMtxI94CDvNUUuqitE4PU/jEPRXZR9iSUV1qP4blXitofn4Pz/VJI5JhraFvBTfa7V7aAm+XsdP3tuIsbQsAqvb0OPj744MoLy0QfA4LhJ6EUZVetoaatEtifywxShK9ZK7Py0jrK4r7fBUEnbGi6OpPRGYYa2HrzJ4oY25fflbubZ87wkRwBZ5mVBroifGxtczFRK483/n4y1EvwEvmCnI60WhHOBpFAeRfkce70iSdkXeCfJ6BfFL4jIqU7mfDZxsFbCJc6clKjlGplweWEk60TdSohj70HWXm43VGUKzyrCp15/IGQanU1Le1kO+bg2vYlbjkTyba+lDysXywIq81/jjJimOUtpdxfNslDdp12HyxvsZ1prGnDXu2AuAQ7IHx62GoeRG4imHjOr965BP+eosHsaBsCkRcAoYmsRArirWWFv5mo++duF6pIwUe7qfSoTx+PU6R8spoA32Nqimw8qHEPCwnFNGsL18S1L92i45jZxUKVPn/q1K8A1N3Xx8RTz0SKrvnJ3NnzwsKtq6KzvMq
+  template:
+    metadata:
+      creationTimestamp: null
+      name: flagger-slack-url
+      namespace: linkerd
+status: {}

@@ -61,3 +61,9 @@ spec:
     #    url: http://flagger-loadtester.test/
     #    metadata:
     #      cmd: "hey -z 2m -q 10 -c 2 http://podinfo-canary.test:9898/"
+    alerts:
+      - name: "Slack"
+        severity: info
+        providerRef:
+          name: slack
+          namespace: linkerd

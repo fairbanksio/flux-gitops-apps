@@ -78,28 +78,5 @@ spec:
   values:
     namespace: linkerd-jaeger
     installNamespace: false
----
-apiVersion: helm.toolkit.fluxcd.io/v2beta1
-kind: HelmRelease
-metadata:
-  name: flagger
-  namespace: linkerd
-spec:
-  chart:
-    spec:
-      chart: flagger
-      sourceRef:
-        kind: HelmRepository
-        name: flagger
-        namespace: flux-system
-  interval: 1h
-  targetNamespace: linkerd
-  values:
-    namespace: linkerd
-    crd:
-      create: false
-    meshProvider: linkerd
-    rbac:
-      create: true
-    metricsServer: "http://prometheus.linkerd-viz.svc.cluster.local:9090"
+
     

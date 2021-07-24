@@ -95,7 +95,6 @@ spec:
   interval: 1h
   targetNamespace: linkerd
   values:
-    namespace: linkerd
     crd:
       create: false
     meshProvider: linkerd

@@ -34,4 +34,6 @@ spec:
       hosts:
         - host: kube.fairbanks.dev
           paths:
-            - "/" 
+            - "/"
+    service:
+      type: ClusterIP

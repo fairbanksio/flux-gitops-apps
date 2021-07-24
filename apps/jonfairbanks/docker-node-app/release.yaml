@@ -39,7 +39,5 @@ spec:
         - host: kube.fairbanks.dev
           paths:
             - "/"
-    service:
-      type: ClusterIP
     image:
-      tag: 2.0.6
+      tag: 2.0.7

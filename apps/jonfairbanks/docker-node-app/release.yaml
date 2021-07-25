@@ -41,6 +41,3 @@ spec:
         - host: kube.fairbanks.dev
           paths:
             - "/"
-
-    image:
-      tag: 2.0.7

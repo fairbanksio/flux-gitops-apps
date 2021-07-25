@@ -17,7 +17,7 @@ spec:
   values:
     controller:
       podAnnotations:
-        linkerd.io/inject: enabled
+        linkerd.io/inject: ingress
       autoscaling:
         enabled: true
         minReplicas: 2

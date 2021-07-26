@@ -19,9 +19,6 @@ spec:
     secretName: weatherdropsecret
     replicas: 1
     minAvailable: 1
-    podAnnotations:
-      linkerd.io/inject: enabled
-      config.linkerd.io/proxy-cpu-request: 5m
     autoscaling:
       enabled: true
       minReplicas: 2
@@ -49,3 +46,4 @@ spec:
             - "/"
     podAnnotations:
       linkerd.io/inject: enabled
+      config.linkerd.io/proxy-cpu-request: 5m

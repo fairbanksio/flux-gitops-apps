@@ -21,7 +21,7 @@ spec:
     # ClusterIP port number
     port: 80
     # container port number or name (optional)
-    targetPort: 80
+    targetPort: 3000
   analysis:
     # schedule interval (default 60s)
     interval: 30s

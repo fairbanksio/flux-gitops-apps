@@ -34,9 +34,7 @@ spec:
       annotations:
         kubernetes.io/ingress.class: nginx
         nginx.ingress.kubernetes.io/configuration-snippet: |
-          proxy_set_header l5d-dst-override $service_name.$namespace.svc.cluster.local:80;
-          proxy_hide_header l5d-remote-ip;
-          proxy_hide_header l5d-server-id;
+          proxy_set_header l5d-dst-override $service_name.$namespace.svc.cluster.local:$service_port;
 
           if ($host = "www.bsord.io") {
               return 308 https://bsord.io$request_uri;

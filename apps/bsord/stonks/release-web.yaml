@@ -14,7 +14,7 @@ spec:
         name: jonfairbanks
         namespace: flux-system
   dependsOn:
-    - name: f5-api-wsb
+    - name: f5-api-superstonk
   interval: 30s
   targetNamespace: stonks
   values:

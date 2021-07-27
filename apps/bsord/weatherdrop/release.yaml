@@ -26,6 +26,7 @@ spec:
       targetCPUUtilizationPercentage: 25
     ingress:
       enabled: true
+      existingSecret: weatherdropsecret
       annotations:
         kubernetes.io/ingress.class: nginx
         nginx.ingress.kubernetes.io/configuration-snippet: |

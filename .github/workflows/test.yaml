@@ -1,4 +1,4 @@
-name: test
+name: Tests
 
 on:
   pull_request:
@@ -8,17 +8,25 @@ on:
 
 jobs:
   manifests:
+    name: Validate Flux Manifests
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-        
+
       - name: Setup tools
         uses: ./.github/actions/tools
 
       - name: Validate manifests
         run: ./scripts/validate.sh
 
+  vuln-scan:
+    name: Vulnerability Scan
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        
       - name: Run Trivy vulnerability scanner in IaC mode
         uses: aquasecurity/trivy-action@master
         with:

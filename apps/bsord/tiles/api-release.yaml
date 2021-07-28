@@ -8,7 +8,7 @@ spec:
   chart:
     spec:
       chart: tiles-api
-      version: 0.4.6
+      version: 0.x.x
       sourceRef:
         kind: HelmRepository
         name: bsord

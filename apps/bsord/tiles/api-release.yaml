@@ -17,7 +17,7 @@ spec:
   targetNamespace: tiles
   values:
     redisHost: tiles-tiles-session-cache-redis-master.tiles.svc.cluster.local
-    tracingHost: collector.linkerd-jaeger
+    tracingHost: http://collector.linkerd-jaeger:9411/api/v2/spans
     replicas: 1
     minAvailable: 1
     autoscaling:

@@ -29,10 +29,10 @@ jobs:
             fi
 
             if [[ "$STATUS" == "enabled" ]]; then
-              echo "[OK] Deployments are currently enabled"
+              echo "[OK] Deployments are currently available"
               exit 0
             else
-              echo "[ERROR] Deployments are NOT currently enabled; please try again later."
+              echo "[ERROR] Deployments are NOT currently available; please try again later."
               echo "[ERROR] ${REASON}"
               exit 1
             fi

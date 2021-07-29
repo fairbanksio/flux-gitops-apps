@@ -22,6 +22,9 @@ jobs:
             REASON=$(curl -s https://raw.githubusercontent.com/Fairbanks-io/site-status/main/deployments.json | jq -r .reason)
             ADMINS=$(curl -s https://raw.githubusercontent.com/Fairbanks-io/site-status/main/deployments.json | jq -r .admins)
             PR_AUTHOR="${{ github.event.pull_request.user.login }}"
+
+            echo $ADMINS
+            echo $PR_AUTHOR
             
             if [ "${ADMINS[@]}" =~ "${PR_AUTHOR"]; then
               echo "[SKIP] $PR_AUTHOR is a member of site-status/deployments admins; skipping verification..."

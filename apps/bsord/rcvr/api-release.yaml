@@ -24,14 +24,21 @@ spec:
     relayPort: "8587"
     senderDomain: rcvr.io
     websiteDomain: rcvr.io
+    replicas: 1
+    minAvailable: 1
     autoscaling:
       enabled: true
       minReplicas: 2
-      maxReplicas: 2
+      maxReplicas: 3
+      targetCPUUtilizationPercentage: 75
     resources:
       limits:
         cpu: 500m
         memory: 750Mi
+      requests:
+        cpu: 50m
+        memory: 100Mi
+      
     ingress:
       enabled: true
       annotations:

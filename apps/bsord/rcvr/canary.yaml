@@ -1,19 +1,19 @@
 apiVersion: flagger.app/v1beta1
 kind: Canary
 metadata:
-  name: tiles-api
-  namespace: tiles
+  name: rcvr-api
+  namespace: rcvr
 spec:
   # deployment reference
   targetRef:
     apiVersion: apps/v1
     kind: Deployment
-    name: tiles-api-tiles-api
+    name: rcvr-rcvr-api
   # HPA reference (optional)
   autoscalerRef:
     apiVersion: autoscaling/v2beta2
     kind: HorizontalPodAutoscaler
-    name: tiles-api-tiles-api
+    name: rcvr-rcvr-api
   # the maximum time in seconds for the canary deployment
   # to make progress before it is rollback (default 600s)
   progressDeadlineSeconds: 60
@@ -21,7 +21,7 @@ spec:
     # ClusterIP port number
     port: 80
     # container port number or name (optional)
-    targetPort: 3000
+    targetPort: 80
   analysis:
     # schedule interval (default 60s)
     interval: 30s
@@ -71,19 +71,19 @@ spec:
 apiVersion: flagger.app/v1beta1
 kind: Canary
 metadata:
-  name: tiles-client
-  namespace: tiles
+  name: rcvr-web
+  namespace: rcvr
 spec:
   # deployment reference
   targetRef:
     apiVersion: apps/v1
     kind: Deployment
-    name: tiles-client-tiles-client
+    name: rcvr-rcvr-web
   # HPA reference (optional)
   autoscalerRef:
     apiVersion: autoscaling/v2beta2
     kind: HorizontalPodAutoscaler
-    name: tiles-client-tiles-client
+    name: rcvr-rcvr-web
   # the maximum time in seconds for the canary deployment
   # to make progress before it is rollback (default 600s)
   progressDeadlineSeconds: 60

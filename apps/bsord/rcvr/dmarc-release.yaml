@@ -8,6 +8,7 @@ spec:
   chart:
     spec:
       chart: rcvr-dmarc
+      version: 0.x.x
       sourceRef:
         kind: HelmRepository
         name: bsord

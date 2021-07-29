@@ -7,7 +7,7 @@ on:
       - 'main'
 
 jobs:
-  deployment-availability:
+  Deployment Availability:
     runs-on: ubuntu-latest
     steps:
       - name: Update & Setup Environment
@@ -18,7 +18,6 @@ jobs:
         id: site-status
         run: |
             STATUS=$(curl -s https://raw.githubusercontent.com/Fairbanks-io/site-status/main/deployments.json | jq -r .status)
-            echo "$STATUS"
             if [ "$STATUS" == "enabled" ]; then
                 echo "Deployments are currently enabled"
                 exit 0

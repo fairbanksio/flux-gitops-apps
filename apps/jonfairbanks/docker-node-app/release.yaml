@@ -23,12 +23,12 @@ spec:
       config.linkerd.io/proxy-cpu-request: 5m
     autoscaling:
       enabled: true
-      minReplicas: 2
-      maxReplicas: 100
-      targetCPUUtilizationPercentage: 25
+      minReplicas: 3
+      maxReplicas: 25
+      targetCPUUtilizationPercentage: 50
     resources:
       requests:
-        cpu: 10m
+        cpu: 50m
     ingress:
       enabled: true
       annotations:

@@ -34,6 +34,9 @@ spec:
           if ($host = "www.fbnks.io") {
               return 308 https://fbnks.io$request_uri;
           }
+          if ($host = "www.fbnks.dev") {
+              return 308 https://fbnks.dev$request_uri;
+          }
       hosts:
         - host: fbnks.io
           paths:

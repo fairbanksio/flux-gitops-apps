@@ -18,7 +18,7 @@ jobs:
         id: site-status
         run: |
             STATUS=$(curl -s https://raw.githubusercontent.com/Fairbanks-io/site-status/main/deployments.json | jq .status)
-            echo $STATUS
+            echo "$STATUS"
             if [ "$STATUS" == "enabled" ]; then
                 echo "Deployments are currently enabled"
                 exit 0

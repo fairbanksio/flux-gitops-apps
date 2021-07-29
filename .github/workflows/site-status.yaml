@@ -33,6 +33,6 @@ jobs:
               exit 0
             else
               echo "[ERROR] Deployments are NOT currently enabled; please try again later."
-              echo "[ERROR] $REASON"
+              echo "[ERROR] ${REASON}"
               exit 1
             fi

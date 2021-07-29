@@ -1,4 +1,4 @@
-name: site-status
+name: Site Status
 
 on:
   pull_request:
@@ -7,7 +7,7 @@ on:
       - 'main'
 
 jobs:
-  site-status:
+  deployment-availability:
     runs-on: ubuntu-latest
     steps:
       - name: Update & Setup Environment

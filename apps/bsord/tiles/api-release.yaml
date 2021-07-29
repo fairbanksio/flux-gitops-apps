@@ -8,7 +8,7 @@ spec:
   chart:
     spec:
       chart: tiles-api
-      version: 0.4.6
+      version: 0.x.x
       sourceRef:
         kind: HelmRepository
         name: bsord
@@ -17,6 +17,7 @@ spec:
   targetNamespace: tiles
   values:
     redisHost: tiles-tiles-session-cache-redis-master.tiles.svc.cluster.local
+    tracingURL: http://collector.linkerd-jaeger:9411/api/v2/spans
     replicas: 1
     minAvailable: 1
     autoscaling:
@@ -29,6 +30,8 @@ spec:
       enabled: true
       annotations:
         kubernetes.io/ingress.class: nginx
+        nginx.ingress.kubernetes.io/configuration-snippet: |
+          proxy_set_header l5d-dst-override $service_name.$namespace.svc.cluster.local:3000;
       hosts:
         - host: api.popcan.io
           paths:

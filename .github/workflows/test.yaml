@@ -1,4 +1,4 @@
-name: test
+name: Tests
 
 on:
   pull_request:
@@ -8,11 +8,37 @@ on:
 
 jobs:
   manifests:
+    name: Validate Flux Manifests
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+
       - name: Setup tools
         uses: ./.github/actions/tools
+
       - name: Validate manifests
         run: ./scripts/validate.sh
+
+  vuln-scan:
+    name: Vulnerability Scan
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        
+      - name: Run Trivy vulnerability scanner in IaC mode
+        uses: aquasecurity/trivy-action@master
+        with:
+          scan-type: 'config'
+          hide-progress: false
+          ignore-unfixed: true
+          severity: 'CRITICAL,HIGH'
+          format: 'template'
+          template: '@/contrib/sarif.tpl'
+          output: 'trivy-results.sarif'
+
+      - name: Upload Trivy scan results to GitHub Security tab
+        uses: github/codeql-action/upload-sarif@v1
+        with:
+          sarif_file: 'trivy-results.sarif'

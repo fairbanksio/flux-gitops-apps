@@ -21,5 +21,9 @@ spec:
       enabled: true
       minReplicas: 2
       maxReplicas: 3
+      targetCPUUtilizationPercentage: 75
+    resources:
+      requests:
+        cpu: 20m
     allowedSenderDomains: "rcvr.io"
     dkimSecretName: rcvr-relay-dkim

@@ -14,7 +14,7 @@ jobs:
         id: setup
         run: "sudo apt-get -qq update && sudo apt-get -qq install jq -y"
 
-      - name: Verify deployment availability
+      - name: Verify Deployment Availability
         id: site-status
         run: |
             STATUS=$(curl -s https://raw.githubusercontent.com/Fairbanks-io/site-status/main/deployments.json | jq .status)

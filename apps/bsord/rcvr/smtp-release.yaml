@@ -19,9 +19,16 @@ spec:
     redisHost: rcvr-rcvr-session-cache-redis-master
     smtpHostname: in.rcvr.io
     smtpAllowedHosts: rcvr.io
+    replicas: 1
+    minAvailable: 1
     autoscaling:
       enabled: true
       minReplicas: 2
+      maxReplicas: 3
+      targetCPUUtilizationPercentage: 75
+    resources:
+      requests:
+        cpu: 20m
   valuesFrom:
   - kind: Secret
     name: "rcvr-smtp-values"

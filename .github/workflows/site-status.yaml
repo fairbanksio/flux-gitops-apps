@@ -19,10 +19,20 @@ jobs:
         id: site-status
         run: |
             STATUS=$(curl -s https://raw.githubusercontent.com/Fairbanks-io/site-status/main/deployments.json | jq -r .status)
+            REASON=$(curl -s https://raw.githubusercontent.com/Fairbanks-io/site-status/main/deployments.json | jq -r .reason)
+            ADMINS=$(curl -s https://raw.githubusercontent.com/Fairbanks-io/site-status/main/deployments.json | jq -r .admins)
+            PR_AUTHOR="${{ github.event.pull_request.user.login }}"
+            
+            if [ "${ADMINS[@]}" =~ "${PR_AUTHOR"]; then
+              echo "[SKIP] $PR_AUTHOR is a member of site-status/deployments admins; skipping verification..."
+              exit 0
+            fi
+
             if [ "$STATUS" == "enabled" ]; then
-                echo "Deployments are currently enabled"
-                exit 0
+              echo "[OK] Deployments are currently enabled"
+              exit 0
             else
-                echo "Deployments are NOT currently enabled; please try again later."
-                exit 1
+              echo "[ERROR] Deployments are NOT currently enabled; please try again later."
+              echo "[ERROR] $REASON"
+              exit 1
             fi

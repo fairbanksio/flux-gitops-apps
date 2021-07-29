@@ -41,6 +41,12 @@ spec:
         - host: www.fbnks.io
           paths:
             - "/"
+        - host: fbnks.dev
+          paths:
+            - "/"
+        - host: www.fbnks.dev
+          paths:
+            - "/"
 
     apiURL: "https://api.fbnks.io/api/"
     auth: "true"

@@ -1,0 +1,26 @@
+name: test
+
+on:
+  pull_request:
+  push:
+    branches:
+      - 'main'
+
+jobs:
+  site-status:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Update & Setup Environment
+        id: setup
+        run: "sudo apt-get -qq update && sudo apt-get -qq install jq -y"
+
+      - name: Verify deployment availability
+        id: site-status
+        run: |
+            STATUS=$(curl -s https://raw.githubusercontent.com/Fairbanks-io/site-status/main/deployments.json | jq .status)
+            if [ "$STATUS" = "enabled" ]; then
+                echo "Deployments are currently enabled"
+            else
+                echo "Deployments are NOT currently enabled; please try again later."
+                exit(1)
+            fi

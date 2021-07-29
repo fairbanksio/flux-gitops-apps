@@ -21,8 +21,10 @@ spec:
       enabled: true
       minReplicas: 2
       maxReplicas: 3
-    limits:
-      cpu: 100m
+      targetCPUUtilizationPercentage: 75
+    resources:
+      requests:
+        cpu: 20m
     ingress:
       enabled: true
       annotations:

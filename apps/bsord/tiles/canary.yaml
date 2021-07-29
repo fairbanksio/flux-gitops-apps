@@ -2,7 +2,7 @@ apiVersion: flagger.app/v1beta1
 kind: Canary
 metadata:
   name: tiles-api
-  namespace: tiles-api
+  namespace: tiles
 spec:
   # deployment reference
   targetRef:

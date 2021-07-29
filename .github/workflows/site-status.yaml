@@ -1,4 +1,4 @@
-name: test
+name: site-status
 
 on:
   pull_request:

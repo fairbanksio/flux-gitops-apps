@@ -8,6 +8,7 @@ spec:
   chart:
     spec:
       chart: tiles-client
+      version: 0.x.x
       sourceRef:
         kind: HelmRepository
         name: bsord

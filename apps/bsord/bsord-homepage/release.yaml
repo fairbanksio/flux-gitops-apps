@@ -8,7 +8,7 @@ spec:
   chart:
     spec:
       chart: bsord-homepage
-      version: 0.4.5
+      version: 0.x.x
       sourceRef:
         kind: HelmRepository
         name: bsord
@@ -25,10 +25,10 @@ spec:
       enabled: true
       minReplicas: 2
       maxReplicas: 5
-      targetCPUUtilizationPercentage: 25
+      targetCPUUtilizationPercentage: 50
     resources:
       requests:
-        cpu: 10m
+        cpu: 20m
     ingress:
       enabled: true
       annotations:

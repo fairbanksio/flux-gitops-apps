@@ -22,8 +22,11 @@ spec:
     autoscaling:
       enabled: true
       minReplicas: 2
-      maxReplicas: 5
-      targetCPUUtilizationPercentage: 25
+      maxReplicas: 3
+      targetCPUUtilizationPercentage: 75
+    resources:
+      requests:
+        cpu: 20m
     ingress:
       enabled: true
       existingSecret: weatherdropsecret

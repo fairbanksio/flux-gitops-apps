@@ -8,6 +8,7 @@ spec:
   chart:
     spec:
       chart: tiles-client
+      version: 0.x.x
       sourceRef:
         kind: HelmRepository
         name: bsord
@@ -23,8 +24,10 @@ spec:
       enabled: true
       minReplicas: 2
       maxReplicas: 3
-    limits:
-      cpu: 200m
+      targetCPUUtilizationPercentage: 50
+    resources:
+      requests:
+        cpu: 25m
     ingress:
       enabled: true
       annotations:

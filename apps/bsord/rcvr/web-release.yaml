@@ -16,6 +16,8 @@ spec:
   interval: 30s
   targetNamespace: rcvr
   values:
+    podAnnotations:
+      linkerd.io/inject: enabled
     apiHost: api.rcvr.io
     replicas: 1
     minAvailable: 1

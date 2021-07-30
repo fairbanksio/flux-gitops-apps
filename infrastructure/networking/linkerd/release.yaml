@@ -64,26 +64,6 @@ spec:
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
-  name: linkerd-jaeger
-  namespace: linkerd-jaeger
-spec:
-  chart:
-    spec:
-      chart: linkerd-jaeger
-      sourceRef:
-        kind: HelmRepository
-        name: linkerd
-        namespace: flux-system
-  interval: 1h
-  targetNamespace: linkerd-jaeger
-  values:
-    namespace: linkerd-jaeger
-    installNamespace: false
-    podAnnotations: 
----
-apiVersion: helm.toolkit.fluxcd.io/v2beta1
-kind: HelmRelease
-metadata:
   name: flagger
   namespace: linkerd
 spec:

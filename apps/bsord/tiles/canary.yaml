@@ -8,12 +8,12 @@ spec:
   targetRef:
     apiVersion: apps/v1
     kind: Deployment
-    name: tiles-api-tiles-api
+    name: tiles-tiles-api
   # HPA reference (optional)
   autoscalerRef:
     apiVersion: autoscaling/v2beta2
     kind: HorizontalPodAutoscaler
-    name: tiles-api-tiles-api
+    name: tiles-tiles-api
   # the maximum time in seconds for the canary deployment
   # to make progress before it is rollback (default 600s)
   progressDeadlineSeconds: 60
@@ -78,12 +78,12 @@ spec:
   targetRef:
     apiVersion: apps/v1
     kind: Deployment
-    name: tiles-client-tiles-client
+    name: tiles-tiles-client
   # HPA reference (optional)
   autoscalerRef:
     apiVersion: autoscaling/v2beta2
     kind: HorizontalPodAutoscaler
-    name: tiles-client-tiles-client
+    name: tiles-tiles-client
   # the maximum time in seconds for the canary deployment
   # to make progress before it is rollback (default 600s)
   progressDeadlineSeconds: 60

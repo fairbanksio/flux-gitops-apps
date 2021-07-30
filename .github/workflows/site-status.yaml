@@ -1,4 +1,4 @@
-name: Site Status
+name: 🚨 Site Status
 
 on:
   pull_request:

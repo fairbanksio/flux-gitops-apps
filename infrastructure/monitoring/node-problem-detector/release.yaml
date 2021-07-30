@@ -12,5 +12,5 @@ spec:
         kind: HelmRepository
         name: deliveryhero
         namespace: flux-system
-  interval: 1h
+  interval: 6h
   targetNamespace: kube-system

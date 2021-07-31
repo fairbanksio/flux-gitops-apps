@@ -22,6 +22,8 @@ spec:
         useHostPort: true
       networkMonitoring:
         enabled: true
+      apm:
+        enabled: true
   valuesFrom:
   - kind: Secret
     name: "datadog-values"

@@ -24,3 +24,8 @@ metadata:
   annotations:
     linkerd.io/inject: enabled
     config.linkerd.io/proxy-await: "enabled"
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: jaeger

@@ -63,6 +63,29 @@ spec:
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
+  name: jaeger
+  namespace: jaeger
+spec:
+  chart:
+    spec:
+      chart: jaeger
+      sourceRef:
+        kind: HelmRepository
+        name: jaeger
+        namespace: flux-system
+  interval: 1h
+  targetNamespace: jaeger
+  values:
+    provisionDataStore:
+      cassandra: false
+      elasticsearch: true
+    storage:
+      type: elasticsearch
+
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
   name: flagger
   namespace: linkerd
 spec:

@@ -40,5 +40,5 @@ spec:
         client-max-body-size: 250m
         proxy-connect-timeout: "60"
         proxy-read-timeout: "60"
-        #enable-opentracing: "true"
-        #zipkin-collector-host: collector.linkerd-jaeger
+        enable-opentracing: "true"
+        zipkin-collector-host: collector.linkerd-jaeger

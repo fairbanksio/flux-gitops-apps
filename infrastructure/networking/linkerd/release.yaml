@@ -83,6 +83,8 @@ spec:
       resources:
         memory:
           limit: 100Mi
+        cpu:
+          limit: 200m
 ---
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease

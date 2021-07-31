@@ -78,9 +78,11 @@ spec:
   values:
     provisionDataStore:
       cassandra: false
-      elasticsearch: true
-    storage:
-      type: elasticsearch
+      elasticsearch: false
+      kafka: true
+    agent:
+      enabled: false
+
 
 ---
 apiVersion: helm.toolkit.fluxcd.io/v2beta1

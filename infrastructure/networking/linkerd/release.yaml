@@ -81,8 +81,8 @@ spec:
     installNamespace: false
     jaeger:
       resources:
-        limits:
-          memory: 100Mi
+        memory:
+          limit: 100Mi
 ---
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease

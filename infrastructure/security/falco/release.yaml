@@ -28,8 +28,6 @@ spec:
         rules-flux.yaml: |-
           - macro: user_known_contact_k8s_api_server_activities
             condition: conatiner.image.repository = "ghcr.io/fluxcd/kustomize-controller"
-  valuesFrom:
-  - kind: Secret
-    name: "falco-values"
+
 
       

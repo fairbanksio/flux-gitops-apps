@@ -32,8 +32,5 @@ spec:
             
           - macro: user_sensitive_mount_containers
             condition: container.image.repository endswith "gcr.io/datadoghq/agent"
-  valuesFrom:
-  - kind: Secret
-    name: "falco-values"
 
       

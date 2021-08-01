@@ -29,7 +29,9 @@ spec:
           - list: user_known_k8s_images
             append: true
             items: ["ghcr.io/fluxcd/kustomize-controller"]
-            
+          - macro: user_known_contact_k8s_api_server_activities
+            condition: conatiner.image.repository = "ghcr.io/fluxcd/kustomize-controller"
+        rules-datadog.yaml: |-
           - macro: user_sensitive_mount_containers
             condition: container.image.repository endswith "gcr.io/datadoghq/agent"
 

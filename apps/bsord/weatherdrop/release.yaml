@@ -16,7 +16,7 @@ spec:
   interval: 30s
   targetNamespace: weatherdrop
   values:
-    secretName: weatherdropsecret
+    existingSecret: weatherdropsecret
     replicas: 1
     minAvailable: 1
     autoscaling:

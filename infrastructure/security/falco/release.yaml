@@ -30,7 +30,7 @@ spec:
       rules-flux.yaml: |-
         - list: user_known_k8s_images
           append: true
-          items: ["ghcr.io/fluxcd/kustomize-controller", "docker.io/fluxcd/flux", "cr.l5d.io/linkerd/controller"]
+          items: ["ghcr.io/fluxcd/kustomize-controller", "docker.io/fluxcd/flux", "cr.l5d.io/linkerd/controller", "docker.io/digitalocean/do-agent", "docker.io/digitalocean/do-csi-plugin"]
         - macro: user_known_contact_k8s_api_server_activities
           condition: container.image.repository in (user_known_k8s_images)
       rules-datadog.yaml: |-

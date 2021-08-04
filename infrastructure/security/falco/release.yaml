@@ -25,7 +25,9 @@ spec:
       enabled: true
       syscallEventDrops:
         actions:
-          - ignore
+          - log
+      logStderr: true
+      logSyslog: false
     customRules:
       custom-rules.yaml: |-
         - list: user_known_k8s_images

@@ -17,3 +17,7 @@ spec:
   values:
     kubecostToken:
       secretName: "kubecost-token"
+    global.prometheus.enabled: false
+    prometheus.kubeStateMetrics.enabled: false
+    prometheus.server.persistentVolume.enabled: false
+    persistentVolume.enabled: false

@@ -7,7 +7,7 @@ metadata:
 spec:
   chart:
     spec:
-      chart: kubecost/cost-analyzer
+      chart: cost-analyzer
       sourceRef:
         kind: HelmRepository
         name: kubecost

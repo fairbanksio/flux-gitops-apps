@@ -12,7 +12,7 @@ spec:
         kind: HelmRepository
         name: falcosecurity
         namespace: flux-system
-  interval: 1h
+  interval: 24h
   targetNamespace: falco
   values:
     auditLog:
@@ -22,7 +22,7 @@ spec:
       webui:
         enabled: true
     falco:
-      enabled: true
+      enabled: false
       syscallEventDrops:
         actions:
           - log

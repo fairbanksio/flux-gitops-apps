@@ -41,9 +41,5 @@ spec:
           condition: container.image.repository in (user_known_sensitive_mount_images)
         - macro: user_expected_system_procs_network_activity_conditions
           condition: container.image.repository = "docker.io/bitnami/redis" and proc.cmdline contains "ping"
-  valuesFrom:
-  - kind: Secret
-    name: "falco-values"
-          
 
       

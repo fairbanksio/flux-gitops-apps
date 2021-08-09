@@ -2,19 +2,19 @@
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
-  name: docker-node-app
-  namespace: docker-node-app
+  name: rick
+  namespace: rick
 spec:
   chart:
     spec:
-      chart: docker-node-app
-      version: 2.0.x
+      chart: rick
+      version: 1.0.x
       sourceRef:
         kind: HelmRepository
         name: jonfairbanks
         namespace: flux-system
   interval: 30s
-  targetNamespace: docker-node-app
+  targetNamespace: rick
   values:
     replicas: 1
     minAvailable: 1
@@ -23,8 +23,8 @@ spec:
       config.linkerd.io/proxy-cpu-request: 5m
     autoscaling:
       enabled: true
-      minReplicas: 3
-      maxReplicas: 25
+      minReplicas: 2
+      maxReplicas: 10
       targetCPUUtilizationPercentage: 50
     resources:
       requests:
@@ -36,6 +36,6 @@ spec:
         nginx.ingress.kubernetes.io/configuration-snippet: |
           proxy_set_header l5d-dst-override $service_name.$namespace.svc.cluster.local:$service_port;
       hosts:
-        - host: kube.fairbanks.dev
+        - host: rick.fairbanks.dev
           paths:
             - "/"

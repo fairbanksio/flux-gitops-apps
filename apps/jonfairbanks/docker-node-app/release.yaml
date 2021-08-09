@@ -28,7 +28,7 @@ spec:
       targetCPUUtilizationPercentage: 50
     resources:
       requests:
-        cpu: 50m
+        cpu: 25m
     ingress:
       enabled: true
       annotations:

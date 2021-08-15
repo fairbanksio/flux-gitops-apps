@@ -39,3 +39,6 @@ spec:
         - host: rick.fairbanks.dev
           paths:
             - "/"
+        - host: rick.fairbanks.io
+          paths:
+            - "/"

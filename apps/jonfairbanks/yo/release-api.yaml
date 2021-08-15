@@ -23,8 +23,6 @@ spec:
     resources:
       requests:
         cpu: 10m
-    image:
-      tag: latest
     secretName: yo-mongouri
     apiURL: "https://api.fbnks.io/api/"
     authDomain: "fairbanks.auth0.com"

@@ -24,7 +24,7 @@ spec:
     autoscaling:
       enabled: true
       minReplicas: 2
-      maxReplicas: 10
+      maxReplicas: 5
       targetCPUUtilizationPercentage: 50
     resources:
       requests:
@@ -37,5 +37,8 @@ spec:
           proxy_set_header l5d-dst-override $service_name.$namespace.svc.cluster.local:$service_port;
       hosts:
         - host: rick.fairbanks.dev
+          paths:
+            - "/"
+        - host: rick.fairbanks.io
           paths:
             - "/"

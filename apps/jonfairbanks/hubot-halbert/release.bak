@@ -8,7 +8,7 @@ spec:
   chart:
     spec:
       chart: halbert
-      version: 1.x.x
+      version: 2.x.x
       sourceRef:
         kind: HelmRepository
         name: jonfairbanks

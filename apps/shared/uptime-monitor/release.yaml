@@ -28,7 +28,8 @@ spec:
       hosts:
         - host: uptime.bsord.dev
           paths:
-            - path: "/" 
+            - path: /
+              pathType: ImplementationSpecific
         - host: uptime.fairbanks.dev
           paths:
             - path: /

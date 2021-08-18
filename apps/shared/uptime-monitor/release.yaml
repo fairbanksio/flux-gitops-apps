@@ -1,0 +1,34 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: uptime-monitor
+  namespace: uptime-monitor
+spec:
+  chart:
+    spec:
+      chart: uptime-monitor
+      version: 0.x.x
+      sourceRef:
+        kind: HelmRepository
+        name: fairbanks-io
+        namespace: flux-system
+  interval: 30s
+  targetNamespace: uptime-monitor
+  values:
+    replicas: 1
+    minAvailable: 1
+    limits:
+      cpu: 100m
+    secretName: uptime-monitor-secret
+    ingress:
+      enabled: true
+      annotations:
+        kubernetes.io/ingress.class: nginx
+      hosts:
+        - host: uptime.bsord.dev
+          paths:
+            - "/" 
+        - host: uptime.fairbanks.dev
+          paths:
+            - "/" 

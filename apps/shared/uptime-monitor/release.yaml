@@ -28,7 +28,7 @@ spec:
       hosts:
         - host: uptime.bsord.dev
           paths:
-            - "/" 
+            - path: "/" 
         - host: uptime.fairbanks.dev
           paths:
-            - "/" 
+            - path: "/"  

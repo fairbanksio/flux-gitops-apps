@@ -20,7 +20,7 @@ spec:
     minAvailable: 1
     limits:
       cpu: 100m
-    secretName: uptime-monitor-secret
+    existingSecret: uptime-monitor-secret
     ingress:
       enabled: true
       annotations:

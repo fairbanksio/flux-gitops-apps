@@ -31,4 +31,5 @@ spec:
             - path: "/" 
         - host: uptime.fairbanks.dev
           paths:
-            - path: "/"  
+            - path: /
+              pathType: ImplementationSpecific

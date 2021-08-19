@@ -1,0 +1,46 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: docs
+  namespace: docs
+spec:
+  chart:
+    spec:
+      chart: json-formatter
+      version: 1.0.x
+      sourceRef:
+        kind: HelmRepository
+        name: fairbanks-io
+        namespace: flux-system
+  interval: 30s
+  targetNamespace: docs
+  values:
+    replicas: 1
+    minAvailable: 1
+    podAnnotations:
+      linkerd.io/inject: enabled
+    autoscaling:
+      enabled: true
+      minReplicas: 2
+      maxReplicas: 3
+    resources:
+      requests:
+        cpu: 10m
+    ingress:
+      enabled: true
+      annotations:
+        kubernetes.io/ingress.class: nginx
+      hosts:
+        - host: docs.fairbanks.dev
+          paths:
+            - "/"
+        - host: docs.fairbanks.io
+          paths:
+            - "/"
+        - host: docs.bsord.dev
+          paths:
+            - "/"
+        - host: docs.bsord.io
+          paths:
+            - "/"

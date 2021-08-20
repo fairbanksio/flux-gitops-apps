@@ -32,6 +32,8 @@ spec:
       annotations:
         kubernetes.io/ingress.class: nginx
         nginx.ingress.kubernetes.io/configuration-snippet: |
+          proxy_set_header l5d-dst-override $service_name.$namespace.svc.cluster.local:$service_port;
+        nginx.ingress.kubernetes.io/configuration-snippet: |
           if ($host = "www.fairbanks.io") {
               return 308 https://fairbanks.io$request_uri;
           }

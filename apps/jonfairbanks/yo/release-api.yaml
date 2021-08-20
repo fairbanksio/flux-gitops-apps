@@ -1,0 +1,42 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: yo-api
+  namespace: yo
+spec:
+  chart:
+    spec:
+      chart: yo-api
+      version: 1.0.x
+      sourceRef:
+        kind: HelmRepository
+        name: jonfairbanks
+        namespace: flux-system
+  interval: 30s
+  targetNamespace: yo
+  values:
+    replicas: 1
+    minAvailable: 1
+    podAnnotations:
+      linkerd.io/inject: enabled
+    resources:
+      requests:
+        cpu: 10m
+    secretName: yo-mongouri
+    apiURL: "https://api.fbnks.io/api/"
+    authDomain: "fairbanks.auth0.com"
+    baseURL: "https://fbnks.io"
+    enableAuth: "true"
+    errorURL: "https://fbnks.io/missing.html"
+    ingress:
+      annotations:
+        kubernetes.io/ingress.class: nginx
+        nginx.ingress.kubernetes.io/configuration-snippet: |
+          proxy_set_header l5d-dst-override $service_name.$namespace.svc.cluster.local:$service_port;
+      enabled: true
+      hosts:
+      - host: api.fbnks.io
+        paths:
+        - /
+      tls: []

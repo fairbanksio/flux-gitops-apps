@@ -8,12 +8,12 @@ spec:
   targetRef:
     apiVersion: apps/v1
     kind: Deployment
-    name: yo-yo-web
+    name: yo-yo-client
   # HPA reference (optional)
   #autoscalerRef:
   #  apiVersion: autoscaling/v2beta2
   #  kind: HorizontalPodAutoscaler
-  #  name: yo-yo-web
+  #  name: yo-yo-client
   # the maximum time in seconds for the canary deployment
   # to make progress before it is rollback (default 600s)
   progressDeadlineSeconds: 60

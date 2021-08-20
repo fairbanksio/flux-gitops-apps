@@ -21,13 +21,13 @@ spec:
     limits:
       cpu: 100m
     existingSecret: uptime-monitor-secret
+    podAnnotations:
+      linkerd.io/inject: enabled
+      config.linkerd.io/proxy-cpu-request: 5m
     ingress:
       enabled: true
       annotations:
         kubernetes.io/ingress.class: nginx
-        podAnnotations:
-          linkerd.io/inject: enabled
-          config.linkerd.io/proxy-cpu-request: 5m
         nginx.ingress.kubernetes.io/configuration-snippet: |
           proxy_set_header l5d-dst-override $service_name.$namespace.svc.cluster.local:$service_port;
       hosts:

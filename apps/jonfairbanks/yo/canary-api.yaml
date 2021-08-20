@@ -10,7 +10,7 @@ spec:
     kind: Deployment
     name: yo-yo-api
 
-   HPA reference (optional)
+  # HPA reference (optional)
   autoscalerRef:
     apiVersion: autoscaling/v2beta2
     kind: HorizontalPodAutoscaler

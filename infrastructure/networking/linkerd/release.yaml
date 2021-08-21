@@ -81,4 +81,10 @@ spec:
       create: false
     meshProvider: linkerd
     metricsServer: "http://prometheus.linkerd-viz.svc.cluster.local:9090"
+    controllerReplicas: 2
+    global:
+      proxy:
+        resources:
+          cpu:
+            request: 10m
     

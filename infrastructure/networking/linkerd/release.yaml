@@ -17,9 +17,18 @@ spec:
   values:
     namespace: linkerd
     installNamespace: false
+    controllerReplicas: 3
+    proxy:
+      resources:
+        cpu:
+          request: 10m
+    controllerResources:
+      cpu:
+        limit: 100m
+        request: 50Mi
 
     # High Availability config values
-    #enablePodAntiAffinity: true
+    enablePodAntiAffinity: true
 
     #controllerReplicas: 2
 
@@ -81,13 +90,5 @@ spec:
       create: false
     meshProvider: linkerd
     metricsServer: "http://prometheus.linkerd-viz.svc.cluster.local:9090"
-    controllerReplicas: 3
-    proxy:
-      resources:
-        cpu:
-          request: 10m
-    controllerResources:
-      cpu:
-        limit: 100m
-        request: 50Mi
+    
     

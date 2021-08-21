@@ -39,3 +39,7 @@ spec:
           paths:
             - path: /
               pathType: ImplementationSpecific
+        - host: status.fairbanks.dev
+          paths:
+            - path: /
+              pathType: ImplementationSpecific

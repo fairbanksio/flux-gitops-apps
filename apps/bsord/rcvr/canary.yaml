@@ -16,7 +16,7 @@ spec:
     name: rcvr-rcvr-api
   # the maximum time in seconds for the canary deployment
   # to make progress before it is rollback (default 600s)
-  progressDeadlineSeconds: 60
+  progressDeadlineSeconds: 120
   service:
     # ClusterIP port number
     port: 80
@@ -24,7 +24,7 @@ spec:
     targetPort: 80
   analysis:
     # schedule interval (default 60s)
-    interval: 30s
+    interval: 60s
     # max number of failed metric checks before rollback
     threshold: 5
     # max traffic percentage routed to canary
@@ -32,7 +32,7 @@ spec:
     maxWeight: 50
     # canary increment step
     # percentage (0-100)
-    stepWeight: 5
+    stepWeight: 10
     # Linkerd Prometheus checks
     metrics:
     - name: request-success-rate

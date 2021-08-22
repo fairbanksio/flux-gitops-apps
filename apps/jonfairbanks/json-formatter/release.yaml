@@ -19,7 +19,7 @@ spec:
     replicas: 1
     minAvailable: 1
     podAnnotations:
-      linkerd.io/inject: enabled
+      linkerd.io/inject: disabled
     autoscaling:
       enabled: true
       minReplicas: 2

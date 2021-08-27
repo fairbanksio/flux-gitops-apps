@@ -1,0 +1,43 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: rick-latest
+  namespace: rick
+spec:
+  chart:
+    spec:
+      chart: rick
+      version: 1.0.x
+      sourceRef:
+        kind: HelmRepository
+        name: jonfairbanks
+        namespace: flux-system
+  interval: 30s
+  targetNamespace: rick
+  values:
+    image:
+      tag: latest 
+    replicas: 1
+    minAvailable: 1
+    podAnnotations:
+      linkerd.io/inject: enabled
+      config.linkerd.io/proxy-cpu-request: 5m
+    autoscaling:
+      enabled: true
+      minReplicas: 2
+      maxReplicas: 5
+      targetCPUUtilizationPercentage: 50
+    resources:
+      requests:
+        cpu: 25m
+    ingress:
+      enabled: true
+      annotations:
+        kubernetes.io/ingress.class: nginx
+        nginx.ingress.kubernetes.io/configuration-snippet: |
+          proxy_set_header l5d-dst-override $service_name.$namespace.svc.cluster.local:$service_port;
+      hosts:
+        - host: rick.bsord.io
+          paths:
+            - "/"

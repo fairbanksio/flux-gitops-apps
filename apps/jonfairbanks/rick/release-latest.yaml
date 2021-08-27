@@ -38,6 +38,6 @@ spec:
         nginx.ingress.kubernetes.io/configuration-snippet: |
           proxy_set_header l5d-dst-override $service_name.$namespace.svc.cluster.local:$service_port;
       hosts:
-        - host: rick.bsord.io
+        - host: qr.bsord.io
           paths:
             - "/"

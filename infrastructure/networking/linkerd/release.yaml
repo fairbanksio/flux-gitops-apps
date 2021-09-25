@@ -69,6 +69,12 @@ spec:
     namespace: linkerd-viz
     installNamespace: false
     jaegerUrl: jaeger.linkerd-jaeger:16686
+    prometheus:
+      resources:
+        memory:
+          limit: 1Gi
+        cpu:
+          limit: 250m
 ---
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease

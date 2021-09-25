@@ -3317,8 +3317,8 @@ spec:
             cpu: 500m
             memory: 1Gi
           requests:
-            cpu: 500m
-            memory: 1Gi
+            cpu: 100m
+            memory: 64Mi
         securityContext:
           allowPrivilegeEscalation: false
           readOnlyRootFilesystem: true
@@ -3470,11 +3470,11 @@ spec:
             port: http
         resources:
           limits:
-            cpu: 1000m
+            cpu: 500m
             memory: 1Gi
           requests:
-            cpu: 50m
-            memory: 64Mi
+            cpu: 500m
+            memory: 1Gi
         securityContext:
           allowPrivilegeEscalation: false
           readOnlyRootFilesystem: true

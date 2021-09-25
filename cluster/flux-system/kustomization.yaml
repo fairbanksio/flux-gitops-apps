@@ -9,11 +9,12 @@ patches:
       kind: Deployment
       metadata:
         name: source-controller
+        namespace: flux-system
       spec:
         template:
           spec:
             containers:
-            - name: source-controller
+            - name: manager
               resources:
                 limits:
                   cpu: 500m

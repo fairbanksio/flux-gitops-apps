@@ -18,7 +18,7 @@ patches:
               resources:
                 limits:
                   cpu: 500m
-                  memory: 1Gi
+                  memory: 1228Mi
                 requests:
                   cpu: 500m
                   memory: 1Gi

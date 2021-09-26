@@ -3328,11 +3328,11 @@ spec:
             port: http
         resources:
           limits:
-            cpu: 1000m
-            memory: 2Gi
+            cpu: 500m
+            memory: 1Gi
           requests:
-            cpu: 50m
-            memory: 500Mi
+            cpu: 500m
+            memory: 1Gi
         securityContext:
           allowPrivilegeEscalation: false
           readOnlyRootFilesystem: true

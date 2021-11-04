@@ -16,6 +16,8 @@ spec:
   interval: 1h
   targetNamespace: kube-system
   values:
+    rbac:
+      create: true
     controller:
       podAnnotations:
         linkerd.io/inject: ingress

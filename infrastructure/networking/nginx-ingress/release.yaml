@@ -8,6 +8,7 @@ spec:
   chart:
     spec:
       chart: ingress-nginx
+      version: 4.0.5
       sourceRef:
         kind: HelmRepository
         name: kubernetes

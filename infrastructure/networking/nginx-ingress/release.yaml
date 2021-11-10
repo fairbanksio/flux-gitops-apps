@@ -21,6 +21,7 @@ spec:
     controller:
       podAnnotations:
         linkerd.io/inject: ingress
+        config.linkerd.io/skip-inbound-ports: 10254
       autoscaling:
         enabled: true
         minReplicas: 2
@@ -35,7 +36,6 @@ spec:
         name: nginx-ingress-controller
         annotations:
           service.beta.kubernetes.io/do-loadbalancer-enable-proxy-protocol: true
-          config.linkerd.io/skip-inbound-ports: 10254
       publishService:
         enabled: true
       config:

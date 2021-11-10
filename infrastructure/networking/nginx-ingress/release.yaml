@@ -21,7 +21,7 @@ spec:
     controller:
       podAnnotations:
         linkerd.io/inject: ingress
-        config.linkerd.io/skip-inbound-ports: 10254
+        config.linkerd.io/skip-outbound-ports: 10254
       autoscaling:
         enabled: true
         minReplicas: 2

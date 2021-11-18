@@ -37,7 +37,7 @@ spec:
       publishService:
         enabled: true
       config:
-        annotation-value-word-blocklist: "load_module,lua_package,_by_lua,location,root,proxy_pass,serviceaccount"
+        annotation-value-word-blocklist: "load_module,lua_package,_by_lua,root,proxy_pass,serviceaccount"
         use-proxy-protocol: "true"
         proxy-body-size: 250m
         client-max-body-size: 250m

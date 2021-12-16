@@ -3,5 +3,5 @@ kind: Namespace
 metadata:
   name: tiles
   annotations:
-    linkerd.io/inject: enabled
+    
     config.linkerd.io/proxy-cpu-request: 5m

@@ -39,7 +39,7 @@ spec:
       # minimum req success rate (non 5xx responses)
       # percentage (0-100)
       thresholdRange:
-        min: 99
+        min: 80
       interval: 1m
     - name: request-duration
       # maximum req duration P99

@@ -24,7 +24,7 @@ spec:
     autoscaling:
       enabled: true
       minReplicas: 3
-      maxReplicas: 25
+      maxReplicas: 15
       targetCPUUtilizationPercentage: 50
     resources:
       requests:

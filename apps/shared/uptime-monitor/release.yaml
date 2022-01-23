@@ -22,9 +22,6 @@ spec:
     limits:
       cpu: 100m
     existingSecret: uptime-monitor-secret
-    podAnnotations:
-      linkerd.io/inject: enabled
-      config.linkerd.io/proxy-cpu-request: 5m
     ingress:
       enabled: true
       annotations:

@@ -19,9 +19,7 @@ spec:
     replicas: 1
     minAvailable: 1
     autoscaling:
-      enabled: true
-      minReplicas: 2
-      maxReplicas: 3
+      enabled: false
     resources:
       requests:
         cpu: 50m

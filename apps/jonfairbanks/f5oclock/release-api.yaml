@@ -21,9 +21,7 @@ spec:
     podAnnotations:
       linkerd.io/inject: enabled
     autoscaling:
-      enabled: true
-      minReplicas: 2
-      maxReplicas: 3
+      enabled: false
     resources:
       requests:
         cpu: 50m

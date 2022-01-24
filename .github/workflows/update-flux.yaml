@@ -11,8 +11,9 @@ jobs:
     steps:
       - name: Check out code
         uses: actions/checkout@v2
+        ref: develop
       - name: Setup Flux CLI
-        uses: fluxcd/flux2/action@develop
+        uses: fluxcd/flux2/action@main
       - name: Check for updates
         id: update
         run: |

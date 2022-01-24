@@ -27,6 +27,13 @@ spec:
     resources:
       requests:
         cpu: 20m
+    topologySpreadConstraints:
+      - labelSelector:
+          matchLabels:
+            app.kubernetes.io/instance: weatherdrop-weatherdrop
+        maxSkew: 1
+        topologyKey: kubernetes.io/hostname
+        whenUnsatisfiable: ScheduleAnyway
     ingress:
       enabled: true
       existingSecret: weatherdropsecret

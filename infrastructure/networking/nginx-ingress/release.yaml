@@ -41,3 +41,14 @@ spec:
         client-max-body-size: 250m
         proxy-connect-timeout: "60"
         proxy-read-timeout: "60"
+      affinity:
+      # An example of required pod anti-affinity
+      podAntiAffinity:
+        requiredDuringSchedulingIgnoredDuringExecution:
+        - labelSelector:
+            matchLabels:
+              app.kubernetes.io/name: ingress-nginx
+              app.kubernetes.io/component: controller
+              # This should be the same as the release name
+              app.kubernetes.io/instance: kube-system-nginx-ingress
+          topologyKey: "kubernetes.io/hostname"

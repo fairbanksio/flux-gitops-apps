@@ -28,6 +28,13 @@ spec:
     resources:
       requests:
         cpu: 25m
+    topologySpreadConstraints:
+      - labelSelector:
+          matchLabels:
+            app.kubernetes.io/instance: tiles-tiles-client
+        maxSkew: 1
+        topologyKey: kubernetes.io/hostname
+        whenUnsatisfiable: ScheduleAnyway
     ingress:
       enabled: true
       annotations:

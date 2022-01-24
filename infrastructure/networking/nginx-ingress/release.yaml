@@ -50,5 +50,5 @@ spec:
               app.kubernetes.io/name: ingress-nginx
               app.kubernetes.io/component: controller
               # This should be the same as the release name
-              app.kubernetes.io/instance: nginx-ingress
+              app.kubernetes.io/instance: kube-system-nginx-ingress
           topologyKey: "kubernetes.io/hostname"

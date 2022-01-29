@@ -13,7 +13,7 @@ spec:
         kind: HelmRepository
         name: bsord
         namespace: flux-system
-  interval: 2m
+  interval: 30s
   targetNamespace: tiles
   values:
     redisHost: tiles-tiles-session-cache-redis-master.tiles.svc.cluster.local

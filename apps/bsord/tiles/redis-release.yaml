@@ -19,7 +19,7 @@ spec:
     master:
       persistence:
         enabled: false
-    slave:
+    replica:
       persistence:
         enabled: false
     cluster:

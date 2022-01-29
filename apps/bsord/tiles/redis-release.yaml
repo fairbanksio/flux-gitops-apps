@@ -13,7 +13,7 @@ spec:
         kind: HelmRepository
         name: bitnami
         namespace: flux-system
-  interval: 5m
+  interval: 1h
   targetNamespace: tiles
   values:
     master:

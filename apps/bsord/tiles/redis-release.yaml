@@ -22,8 +22,7 @@ spec:
     replica:
       persistence:
         enabled: false
-    cluster:
-      slaveCount: 1
+      replicaCount: 1
     auth:
       enabled: true
   valuesFrom:

@@ -13,7 +13,7 @@ spec:
         kind: HelmRepository
         name: bsord
         namespace: flux-system
-  interval: 30s
+  interval: 2m
   targetNamespace: bsord-homepage
   values:
     replicas: 1

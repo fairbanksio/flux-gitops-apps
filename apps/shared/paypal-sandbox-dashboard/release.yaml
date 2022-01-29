@@ -13,7 +13,7 @@ spec:
         kind: HelmRepository
         name: fairbanks-io
         namespace: flux-system
-  interval: 30s
+  interval: 2m
   targetNamespace: paypal-sandbox-dashboard
   values:
     replicas: 1

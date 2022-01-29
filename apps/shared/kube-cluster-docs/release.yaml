@@ -13,7 +13,7 @@ spec:
         kind: HelmRepository
         name: fairbanks-io
         namespace: flux-system
-  interval: 2m
+  interval: 30s
   targetNamespace: docs
   values:
     replicas: 1

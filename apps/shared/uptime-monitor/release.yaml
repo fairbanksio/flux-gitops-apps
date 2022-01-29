@@ -13,7 +13,7 @@ spec:
         kind: HelmRepository
         name: fairbanks-io
         namespace: flux-system
-  interval: 2m
+  interval: 30s
   targetNamespace: uptime-monitor
   values:
     googleClient: 549509318522-2u2einv0slhcbre2ii4ifsre8fe2fett.apps.googleusercontent.com

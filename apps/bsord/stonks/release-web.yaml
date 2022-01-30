@@ -29,7 +29,7 @@ spec:
       requests:
         cpu: 10m
     f5:
-      secretName: "stonks-values"
+      secretName: "f5-mongouri-secret"
     ingress:
       enabled: true
       annotations:

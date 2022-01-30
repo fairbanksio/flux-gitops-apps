@@ -27,4 +27,5 @@ spec:
       tag: 1.0.5
     f5:
       createSecret: false
-      secretName: "stonks-values"
+      secretName: "f5-mongouri-secret"
+      subreddit: superstonk

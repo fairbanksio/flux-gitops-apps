@@ -23,8 +23,6 @@ spec:
     resources:
       requests:
         cpu: 50m
-    image:
-      tag: 1.6.18
     f5:
       createSecret: false
       secretName: "f5-mongouri-secret"

@@ -8,7 +8,7 @@ spec:
   chart:
     spec:
       chart: f5-api
-      version: 1.6.17
+      version: 1.6.x
       sourceRef:
         kind: HelmRepository
         name: jonfairbanks

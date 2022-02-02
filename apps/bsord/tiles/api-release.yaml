@@ -16,7 +16,7 @@ spec:
   interval: 30s
   targetNamespace: tiles
   values:
-    #redisHost: tiles-tiles-session-cache-redis-master.tiles.svc.cluster.local
+    redisHost: tiles-tiles-session-cache-redis-master.tiles.svc.cluster.local
     replicas: 1
     minAvailable: 1
     autoscaling:

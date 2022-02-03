@@ -21,7 +21,7 @@ spec:
       dogstatsd:
         useHostPort: true
       networkMonitoring:
-        enabled: true
+        enabled: false
       agents:
         containers:
           agent:

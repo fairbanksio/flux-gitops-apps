@@ -8,7 +8,7 @@ spec:
   chart:
     spec:
       chart: f5-api
-      version: 1.6.17
+      version: 1.6.x
       sourceRef:
         kind: HelmRepository
         name: jonfairbanks
@@ -23,8 +23,6 @@ spec:
     resources:
       requests:
         cpu: 50m
-    image:
-      tag: 1.0.5
     f5:
       createSecret: false
       secretName: "f5-mongouri-secret"

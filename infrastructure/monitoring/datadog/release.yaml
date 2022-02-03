@@ -17,7 +17,7 @@ spec:
   values:
     datadog:
       processAgent:
-        processCollection: true
+        processCollection: false
       dogstatsd:
         useHostPort: true
       networkMonitoring:

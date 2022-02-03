@@ -28,6 +28,13 @@ spec:
     resources:
       requests:
         cpu: 10m
+    topologySpreadConstraints:
+      - labelSelector:
+          matchLabels:
+            app.kubernetes.io/instance: f5oclock-f5-web
+        maxSkew: 1
+        topologyKey: kubernetes.io/hostname
+        whenUnsatisfiable: ScheduleAnyway
     f5:
       secretName: "f5-mongouri"
     ingress:

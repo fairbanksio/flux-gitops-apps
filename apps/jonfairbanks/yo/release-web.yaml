@@ -24,6 +24,13 @@ spec:
     resources:
       requests:
         cpu: 10m
+    topologySpreadConstraints:
+      - labelSelector:
+          matchLabels:
+            app.kubernetes.io/instance: tetris-tetris
+        maxSkew: 1
+        topologyKey: kubernetes.io/hostname
+        whenUnsatisfiable: ScheduleAnyway
     ingress:
       enabled: true
       annotations:

@@ -21,11 +21,18 @@ spec:
     autoscaling:
       enabled: true
       minReplicas: 3
-      maxReplicas: 15
+      maxReplicas: 25
       targetCPUUtilizationPercentage: 50
     resources:
       requests:
         cpu: 25m
+    topologySpreadConstraints:
+      - labelSelector:
+          matchLabels:
+            app.kubernetes.io/instance: docker-node-app-docker-node-app
+        maxSkew: 1
+        topologyKey: kubernetes.io/hostname
+        whenUnsatisfiable: ScheduleAnyway
     ingress:
       enabled: true
       annotations:

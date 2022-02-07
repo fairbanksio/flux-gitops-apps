@@ -9,7 +9,6 @@ spec:
   pipelineStages:
     - docker: {}
   namespaceSelector:
-    matchNames:
-    - default
+    matchNames: {}
   selector:
     matchLabels: {}

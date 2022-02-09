@@ -4,7 +4,7 @@ metadata:
   labels:
     instance: primary
   name: cadvisor-monitor
-  namespace: grafana
+  namespace: default
 spec:
   endpoints:
   - bearerTokenFile: /var/run/secrets/kubernetes.io/serviceaccount/token
@@ -29,8 +29,7 @@ spec:
     tlsConfig:
       insecureSkipVerify: true
   namespaceSelector:
-    matchNames:
-    - default
+    any: true
   selector:
     matchLabels:
       app.kubernetes.io/name: kubelet

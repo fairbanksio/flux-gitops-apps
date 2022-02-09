@@ -4,11 +4,11 @@ metadata:
   labels:
     instance: primary
   name: kubernetes-pods
-  namespace: grafana
+  namespace: default
 spec:
   pipelineStages:
     - docker: {}
   namespaceSelector:
-    matchNames: {}
+    any: true
   selector:
     matchLabels: {}

@@ -2,7 +2,7 @@ apiVersion: monitoring.grafana.com/v1alpha1
 kind: MetricsInstance
 metadata:
   name: primary
-  namespace: grafana
+  namespace: default
   labels:
     agent: grafana-agent-metrics
 spec:
@@ -36,3 +36,5 @@ spec:
   probeSelector:
     matchLabels:
       instance: primary
+
+

@@ -14,7 +14,7 @@ spec:
       matchLabels:
         agent: grafana-agent-metrics
     externalLabels:
-      cluster: cloud
+      cluster: fairbanks-io
 
   logs:
     instanceSelector:

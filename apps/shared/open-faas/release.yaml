@@ -28,11 +28,11 @@ spec:
       annotations:
         kubernetes.io/ingress.class: nginx
       hosts:
-        - host: s8s.fairbanks.dev
+        - host: fn.fairbanks.dev
           serviceName: gateway
           servicePort: 8080
           path: /
-        - host: s8s.bsord.dev
+        - host: fn.bsord.dev
           serviceName: gateway
           servicePort: 8080
           path: /

@@ -24,6 +24,7 @@ spec:
       replicas: 2
     ingress:
       enabled: true
+      pathType: ImplementationSpecific
       annotations:
         kubernetes.io/ingress.class: nginx
       hosts:

@@ -18,8 +18,17 @@ spec:
   values:
     generateBasicAuth: true
     functionNamespace: openfaas-fn
-    serviceType: LoadBalancer
     operator:
       create: true
     queueWorker:
       replicas: 2
+    ingress:
+      enabled: true
+      annotations:
+        kubernetes.io/ingress.class: nginx
+        nginx.ingress.kubernetes.io/configuration-snippet: |
+          proxy_set_header l5d-dst-override $service_name.$namespace.svc.cluster.local:$service_port;
+      hosts:
+        - host: openfaas.fairbanks.dev
+          paths:
+            - "/"

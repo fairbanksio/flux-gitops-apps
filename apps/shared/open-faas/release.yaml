@@ -1,0 +1,41 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: openfaas
+  namespace: openfaas
+spec:
+  chart:
+    spec:
+      chart: openfaas
+      version: 0.x.x
+      sourceRef:
+        kind: HelmRepository
+        name: openfaas
+        namespace: flux-system
+  interval: 30s
+  targetNamespace: openfaas
+  values:
+    replicas: 1
+    minAvailable: 1
+    autoscaling:
+      enabled: true
+      minReplicas: 2
+      maxReplicas: 3
+    limits:
+      cpu: 100m
+    functionNamespace: openfaas-fn
+    generateBasicAuth: true
+    ingress:
+      enabled: true
+      annotations:
+        kubernetes.io/ingress.class: nginx
+        nginx.ingress.kubernetes.io/configuration-snippet: |
+          proxy_set_header l5d-dst-override $service_name.$namespace.svc.cluster.local:$service_port;
+      hosts:
+        - host: openfaas.fairbanks.dev
+          paths:
+            - "/"
+        - host: openfaas.bsord.dev
+          paths:
+            - "/"

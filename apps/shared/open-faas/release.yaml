@@ -14,8 +14,11 @@ spec:
         kind: HelmRepository
         name: openfaas
         namespace: flux-system
-  interval: 30s
-  targetNamespace: openfaas
   values:
-    functionNamespace: openfaas-fn
     generateBasicAuth: true
+    functionNamespace: openfaas-fn
+    serviceType: LoadBalancer
+    operator:
+      create: true
+    queueWorker:
+      replicas: 2

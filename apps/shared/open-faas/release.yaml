@@ -5,10 +5,11 @@ metadata:
   name: openfaas
   namespace: openfaas
 spec:
+  releaseName: openfaas
   chart:
     spec:
       chart: openfaas
-      version: 0.14.x
+      version: 5.4.x
       sourceRef:
         kind: HelmRepository
         name: openfaas
@@ -18,16 +19,3 @@ spec:
   values:
     functionNamespace: openfaas-fn
     generateBasicAuth: true
-    ingress:
-      enabled: true
-      annotations:
-        kubernetes.io/ingress.class: nginx
-        nginx.ingress.kubernetes.io/configuration-snippet: |
-          proxy_set_header l5d-dst-override $service_name.$namespace.svc.cluster.local:$service_port;
-      hosts:
-        - host: openfaas.fairbanks.dev
-          paths:
-            - "/"
-        - host: openfaas.bsord.dev
-          paths:
-            - "/"

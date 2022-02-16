@@ -14,6 +14,7 @@ spec:
         kind: HelmRepository
         name: openfaas
         namespace: flux-system
+  interval: 30s
   values:
     generateBasicAuth: true
     functionNamespace: openfaas-fn

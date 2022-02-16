@@ -24,11 +24,11 @@ spec:
       replicas: 2
     ingress:
       enabled: true
+      pathType: ImplementationSpecific
       annotations:
         kubernetes.io/ingress.class: nginx
-        nginx.ingress.kubernetes.io/configuration-snippet: |
-          proxy_set_header l5d-dst-override $service_name.$namespace.svc.cluster.local:$service_port;
       hosts:
         - host: openfaas.fairbanks.dev
-          paths:
-            - "/"
+          serviceName: gateway-external
+          servicePort: 8080
+          path: /

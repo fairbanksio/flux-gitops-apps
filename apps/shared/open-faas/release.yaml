@@ -16,14 +16,6 @@ spec:
   interval: 30s
   targetNamespace: openfaas
   values:
-    replicas: 1
-    minAvailable: 1
-    autoscaling:
-      enabled: true
-      minReplicas: 2
-      maxReplicas: 3
-    limits:
-      cpu: 100m
     functionNamespace: openfaas-fn
     generateBasicAuth: true
     ingress:

@@ -8,7 +8,7 @@ spec:
   chart:
     spec:
       chart: openfaas
-      version: 0.x.x
+      version: 0.14.x
       sourceRef:
         kind: HelmRepository
         name: openfaas

@@ -1,5 +1,5 @@
 ---
-apiVersion: openfaas.com/v1
+apiVersion: openfaas.com/v1alpha2
 kind: Function
 metadata:
   name: sample-js

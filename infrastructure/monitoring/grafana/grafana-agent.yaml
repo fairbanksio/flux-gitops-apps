@@ -76,4 +76,4 @@ roleRef:
 subjects:
 - kind: ServiceAccount
   name: grafana-agent
-  namespace: grafana
+  namespace: default

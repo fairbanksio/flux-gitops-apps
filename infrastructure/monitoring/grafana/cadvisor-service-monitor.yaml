@@ -3,12 +3,13 @@ kind: ServiceMonitor
 metadata:
   labels:
     instance: primary
-  name: kubelet-monitor
-  namespace: grafana
+  name: cadvisor-monitor
+  namespace: default
 spec:
   endpoints:
   - bearerTokenFile: /var/run/secrets/kubernetes.io/serviceaccount/token
     honorLabels: true
+    honorTimestamps: false
     interval: 60s
     metricRelabelings:
     - action: keep
@@ -17,7 +18,8 @@ spec:
       - __name__
     - action: replace
       targetLabel: job
-      replacement: integrations/kubernetes/kubelet
+      replacement: integrations/kubernetes/cadvisor
+    path: /metrics/cadvisor
     port: https-metrics
     relabelings:
     - sourceLabels:
@@ -27,7 +29,8 @@ spec:
     tlsConfig:
       insecureSkipVerify: true
   namespaceSelector:
-    any: true
+    matchNames:
+    - default
   selector:
     matchLabels:
-      app.kubernetes.io/name: kubelet 
+      app.kubernetes.io/name: kubelet

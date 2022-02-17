@@ -1,0 +1,9 @@
+---
+apiVersion: openfaas.com/v1
+kind: Function
+metadata:
+  name: sample-js
+  namespace: openfaas-fn
+spec:
+  name: sample-js
+  image: jonfairbanks/sample-js:latest

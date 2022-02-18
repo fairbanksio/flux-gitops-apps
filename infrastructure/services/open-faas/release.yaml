@@ -9,7 +9,7 @@ spec:
   chart:
     spec:
       chart: openfaas
-      version: 5.4.x
+      version: 10.0.x
       sourceRef:
         kind: HelmRepository
         name: openfaas

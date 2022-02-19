@@ -38,10 +38,10 @@ spec:
         kubernetes.io/ingress.class: nginx
       hosts:
         - host: fn.fairbanks.dev
-          serviceName: gateway
+          serviceName: gateway-external
           servicePort: 8080
           path: /
         - host: fn.bsord.dev
-          serviceName: gateway
+          serviceName: gateway-external
           servicePort: 8080
           path: /

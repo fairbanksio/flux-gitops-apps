@@ -6,6 +6,6 @@ metadata:
   namespace: openfaas-fn
 spec:
   name: f5-get-posts
-  image: bsord/f5-get-posts:1.0.8
+  image: bsord/f5-get-posts:1.0.10
   secrets:
     - f5-mongouri

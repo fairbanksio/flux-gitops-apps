@@ -1,0 +1,11 @@
+---
+apiVersion: openfaas.com/v1alpha2
+kind: Function
+metadata:
+  name: f5-get-posts
+  namespace: openfaas-fn
+spec:
+  name: f5-get-posts
+  image: bsord/f5-get-posts:1.0.8
+  secrets:
+    - f5-mongouri

@@ -1,0 +1,23 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: f5-fetch-data
+  namespace: openfaas-fn
+spec:
+  schedule: "* * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: f5-fetch-data
+            image: bsord/f5-fetch-data:1.0.1
+            imagePullPolicy: IfNotPresent
+            volumeMounts:
+            - name: f5-secret
+              mountPath: "/var/openfaas/secrets"
+              readOnly: true
+          volumes:
+          - name: f5-secret
+            secret:
+              secretName: f5-mongouri

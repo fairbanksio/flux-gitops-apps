@@ -17,6 +17,7 @@ spec:
             - name: f5-secret
               mountPath: "/var/openfaas/secrets"
               readOnly: true
+          restartPolicy: Never
           volumes:
           - name: f5-secret
             secret:

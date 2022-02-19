@@ -21,7 +21,16 @@ spec:
     operator:
       create: true
     queueWorker:
-      replicas: 2
+      replicas: 3
+    gateway:
+      readTimeout: 2m
+      writeTimeout: 2m
+      upstreamTimeout: 2m
+    faasnetes:
+      readTimeout: 2m
+      writeTimeout: 2m
+    queueWorker:
+      ackWait: 2m
     ingress:
       enabled: true
       pathType: ImplementationSpecific

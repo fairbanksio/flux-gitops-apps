@@ -17,6 +17,9 @@ spec:
             - name: f5-secret
               mountPath: "/var/openfaas/secrets"
               readOnly: true
+            env:
+            - name: SUBREDDIT
+              value: "superstonk"
           restartPolicy: Never
           volumes:
           - name: f5-secret

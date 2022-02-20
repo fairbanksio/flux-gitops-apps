@@ -20,7 +20,9 @@ spec:
             env:
             - name: SUBREDDIT
               value: "superstonk"
-          restartPolicy: Never
+          restartPolicy: OnFailure
+          successfulJobsHistoryLimit: 1
+          failedJobsHistoryLimit: 3
           volumes:
           - name: f5-secret
             secret:

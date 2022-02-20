@@ -1,7 +1,7 @@
 apiVersion: batch/v1
 kind: CronJob
 metadata:
-  name: f5-fetch-data
+  name: f5-scrape-superstonk
   namespace: openfaas-fn
 spec:
   schedule: "* * * * *"

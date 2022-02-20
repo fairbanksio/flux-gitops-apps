@@ -1,0 +1,15 @@
+---
+apiVersion: openfaas.com/v1
+kind: Function
+metadata:
+  name: subreddit-list
+  namespace: openfaas-fn
+spec:
+  name: subreddit-list
+  image: jonfairbanks/subreddit-list:latest
+  environment:
+    exec_timeout: 5m
+    read_timeout: 5m
+    write_timeout: 5m
+  secrets:
+  - subreddit-list

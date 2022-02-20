@@ -1,0 +1,17 @@
+---
+apiVersion: openfaas.com/v1
+kind: Function
+metadata:
+  name: subreddit-mapper
+  namespace: openfaas-fn
+spec:
+  name: subreddit-mapper
+  image: jonfairbanks/subreddit-mapper:latest
+  environment:
+    combine_output: "false"
+    exec_timeout: 5m
+    read_timeout: 5m
+    write_debug: "true"
+    write_timeout: 5m
+  secrets:
+  - subreddit-mapper

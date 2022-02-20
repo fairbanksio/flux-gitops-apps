@@ -7,10 +7,11 @@ spec:
   schedule: "* * * * *"
   successfulJobsHistoryLimit: 1
   failedJobsHistoryLimit: 3
-  backoffLimit: 3
+  
   concurrencyPolicy: Replace
   jobTemplate:
     spec:
+      backoffLimit: 3
       template:
         spec:
           containers:

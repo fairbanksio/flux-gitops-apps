@@ -7,8 +7,6 @@ spec:
   schedule: "* * * * *"
   successfulJobsHistoryLimit: 1
   failedJobsHistoryLimit: 3
-  
-  concurrencyPolicy: Replace
   jobTemplate:
     spec:
       backoffLimit: 3

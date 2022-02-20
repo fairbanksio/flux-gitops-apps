@@ -13,6 +13,7 @@ spec:
         kind: HelmRepository
         name: bsord
         namespace: flux-system
+  interval: 30s
   targetNamespace: openfaas-fn
   values:
     apiURL: https://fn.bsord.dev/function/f5-get-posts

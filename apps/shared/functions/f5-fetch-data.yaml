@@ -23,7 +23,7 @@ spec:
             env:
             - name: SUBREDDIT
               value: "superstonk"
-          restartPolicy: OnFailure
+          restartPolicy: Never
           volumes:
           - name: f5-secret
             secret:

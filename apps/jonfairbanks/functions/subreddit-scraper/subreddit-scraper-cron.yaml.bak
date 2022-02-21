@@ -5,6 +5,8 @@ metadata:
   namespace: openfaas-fn
 spec:
   schedule: "*/2 * * * *"
+  successfulJobsHistoryLimit: 1
+  failedJobsHistoryLimit: 3
   jobTemplate:
     spec:
       template:

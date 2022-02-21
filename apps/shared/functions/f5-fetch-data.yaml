@@ -14,7 +14,7 @@ spec:
         spec:
           containers:
           - name: f5-fetch-data
-            image: fairbanksio/f5-fetch-data:1.0.8
+            image: fairbanksio/f5-fetch-data:1.0.9
             imagePullPolicy: IfNotPresent
             volumeMounts:
             - name: f5-secret

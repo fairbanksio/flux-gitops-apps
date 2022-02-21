@@ -11,6 +11,6 @@ kind: Namespace
 metadata:
   name: openfaas-fn
   annotations:
-    openfaas: "1"
+    openfaas: 1
   labels:
     role: openfaas-fn

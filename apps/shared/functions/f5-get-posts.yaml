@@ -1,11 +1,10 @@
 ---
-apiVersion: openfaas.com/v1alpha2
+apiVersion: openfaas.com/v1
 kind: Function
 metadata:
   name: f5-get-posts
   namespace: openfaas-fn
 spec:
-  namespace: openfaas-fn
   name: f5-get-posts
   image: fairbanksio/f5-get-posts:1.0.13
   secrets:

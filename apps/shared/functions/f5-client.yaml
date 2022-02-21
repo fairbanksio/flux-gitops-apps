@@ -11,7 +11,7 @@ spec:
       version: 0.x.x
       sourceRef:
         kind: HelmRepository
-        name: bsord
+        name: fairbanks-io
         namespace: flux-system
   interval: 30s
   targetNamespace: openfaas-fn

@@ -59,3 +59,34 @@ spec:
           - name: f5-secret
             secret:
               secretName: f5-mongouri
+---
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: f5-scrape-all
+  namespace: openfaas-fn
+spec:
+  schedule: "* * * * *"
+  successfulJobsHistoryLimit: 1
+  failedJobsHistoryLimit: 3
+  jobTemplate:
+    spec:
+      backoffLimit: 0
+      template:
+        spec:
+          containers:
+          - name: f5-fetch-data
+            image: fairbanksio/f5-fetch-data:1.0.9
+            imagePullPolicy: IfNotPresent
+            volumeMounts:
+            - name: f5-secret
+              mountPath: "/var/openfaas/secrets"
+              readOnly: true
+            env:
+            - name: SUBREDDIT
+              value: "all"
+          restartPolicy: Never
+          volumes:
+          - name: f5-secret
+            secret:
+              secretName: f5-mongouri

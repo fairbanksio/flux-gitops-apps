@@ -2,7 +2,7 @@ apiVersion: batch/v1
 kind: CronJob
 metadata:
   name: f5oclock-scraper-superstonk
-  namespace: openfaas-fn
+  namespace: f5
 spec:
   schedule: "* * * * *"
   successfulJobsHistoryLimit: 1
@@ -27,13 +27,13 @@ spec:
           volumes:
           - name: f5oclock-secret
             secret:
-              secretName: f5-mongouri
+              secretName: f5oclock-mongouri
 ---
 apiVersion: batch/v1
 kind: CronJob
 metadata:
   name: f5oclock-scraper-politics
-  namespace: openfaas-fn
+  namespace: f5
 spec:
   schedule: "* * * * *"
   successfulJobsHistoryLimit: 1
@@ -58,13 +58,13 @@ spec:
           volumes:
           - name: f5oclock-secret
             secret:
-              secretName: f5-mongouri
+              secretName: f5oclock-mongouri
 ---
 apiVersion: batch/v1
 kind: CronJob
 metadata:
   name: f5oclock-scraper-all
-  namespace: openfaas-fn
+  namespace: f5
 spec:
   schedule: "* * * * *"
   successfulJobsHistoryLimit: 1
@@ -89,4 +89,4 @@ spec:
           volumes:
           - name: f5oclock-secret
             secret:
-              secretName: f5-mongouri
+              secretName: f5oclock-mongouri

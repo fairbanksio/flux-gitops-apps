@@ -3,7 +3,7 @@ apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
   name: f5oclock-client
-  namespace: openfaas-fn
+  namespace: f5
 spec:
   chart:
     spec:
@@ -14,7 +14,7 @@ spec:
         name: fairbanks-io
         namespace: flux-system
   interval: 30s
-  targetNamespace: openfaas-fn
+  targetNamespace: f5
   values:
     apiURL: https://fn.bsord.dev/function/f5oclock-api
     ingress:

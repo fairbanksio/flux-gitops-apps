@@ -6,6 +6,6 @@ metadata:
   namespace: openfaas-fn
 spec:
   name: f5oclock-api
-  image: fairbanksio/f5oclock-api:1.0.16
+  image: fairbanksio/f5oclock-api:1.0.17
   secrets:
     - f5-mongouri

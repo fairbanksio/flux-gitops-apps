@@ -2,12 +2,12 @@
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
-  name: f5-client
+  name: f5oclock-client
   namespace: openfaas-fn
 spec:
   chart:
     spec:
-      chart: f5-client
+      chart: f5oclock-client
       version: 0.x.x
       sourceRef:
         kind: HelmRepository

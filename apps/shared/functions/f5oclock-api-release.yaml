@@ -2,10 +2,10 @@
 apiVersion: openfaas.com/v1
 kind: Function
 metadata:
-  name: f5-get-posts
+  name: f5oclock-api
   namespace: openfaas-fn
 spec:
-  name: f5-get-posts
-  image: fairbanksio/f5-get-posts:1.0.15
+  name: f5oclock-api
+  image: fairbanksio/f5oclock-api:1.0.16
   secrets:
     - f5-mongouri

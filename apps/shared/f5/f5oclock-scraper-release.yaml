@@ -1,0 +1,92 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: f5oclock-scraper-superstonk
+  namespace: f5
+spec:
+  schedule: "* * * * *"
+  successfulJobsHistoryLimit: 1
+  failedJobsHistoryLimit: 3
+  jobTemplate:
+    spec:
+      backoffLimit: 0
+      template:
+        spec:
+          containers:
+          - name: f5oclock-scraper
+            image: fairbanksio/f5oclock-scraper:1.0.8
+            imagePullPolicy: IfNotPresent
+            volumeMounts:
+            - name: f5oclock-secret
+              mountPath: "/var/openfaas/secrets"
+              readOnly: true
+            env:
+            - name: SUBREDDIT
+              value: "superstonk"
+          restartPolicy: Never
+          volumes:
+          - name: f5oclock-secret
+            secret:
+              secretName: f5oclock-mongouri
+---
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: f5oclock-scraper-politics
+  namespace: f5
+spec:
+  schedule: "* * * * *"
+  successfulJobsHistoryLimit: 1
+  failedJobsHistoryLimit: 3
+  jobTemplate:
+    spec:
+      backoffLimit: 0
+      template:
+        spec:
+          containers:
+          - name: f5oclock-scraper
+            image: fairbanksio/f5oclock-scraper:1.0.8
+            imagePullPolicy: IfNotPresent
+            volumeMounts:
+            - name: f5oclock-secret
+              mountPath: "/var/openfaas/secrets"
+              readOnly: true
+            env:
+            - name: SUBREDDIT
+              value: "politics"
+          restartPolicy: Never
+          volumes:
+          - name: f5oclock-secret
+            secret:
+              secretName: f5oclock-mongouri
+---
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: f5oclock-scraper-all
+  namespace: f5
+spec:
+  schedule: "* * * * *"
+  successfulJobsHistoryLimit: 1
+  failedJobsHistoryLimit: 3
+  jobTemplate:
+    spec:
+      backoffLimit: 0
+      template:
+        spec:
+          containers:
+          - name: f5oclock-scraper
+            image: fairbanksio/f5oclock-scraper:1.0.8
+            imagePullPolicy: IfNotPresent
+            volumeMounts:
+            - name: f5oclock-secret
+              mountPath: "/var/openfaas/secrets"
+              readOnly: true
+            env:
+            - name: SUBREDDIT
+              value: "all"
+          restartPolicy: Never
+          volumes:
+          - name: f5oclock-secret
+            secret:
+              secretName: f5oclock-mongouri

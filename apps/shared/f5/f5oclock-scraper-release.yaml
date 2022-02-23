@@ -1,8 +1,8 @@
 apiVersion: batch/v1
 kind: CronJob
 metadata:
-  name: f5-scrape-superstonk
-  namespace: openfaas-fn
+  name: f5oclock-scraper-superstonk
+  namespace: f5
 spec:
   schedule: "* * * * *"
   successfulJobsHistoryLimit: 1
@@ -13,11 +13,11 @@ spec:
       template:
         spec:
           containers:
-          - name: f5-fetch-data
-            image: fairbanksio/f5-fetch-data:1.0.9
+          - name: f5oclock-scraper
+            image: fairbanksio/f5oclock-scraper:1.0.8
             imagePullPolicy: IfNotPresent
             volumeMounts:
-            - name: f5-secret
+            - name: f5oclock-secret
               mountPath: "/var/openfaas/secrets"
               readOnly: true
             env:
@@ -25,15 +25,15 @@ spec:
               value: "superstonk"
           restartPolicy: Never
           volumes:
-          - name: f5-secret
+          - name: f5oclock-secret
             secret:
-              secretName: f5-mongouri
+              secretName: f5oclock-mongouri
 ---
 apiVersion: batch/v1
 kind: CronJob
 metadata:
-  name: f5-scrape-politics
-  namespace: openfaas-fn
+  name: f5oclock-scraper-politics
+  namespace: f5
 spec:
   schedule: "* * * * *"
   successfulJobsHistoryLimit: 1
@@ -44,11 +44,11 @@ spec:
       template:
         spec:
           containers:
-          - name: f5-fetch-data
-            image: fairbanksio/f5-fetch-data:1.0.9
+          - name: f5oclock-scraper
+            image: fairbanksio/f5oclock-scraper:1.0.8
             imagePullPolicy: IfNotPresent
             volumeMounts:
-            - name: f5-secret
+            - name: f5oclock-secret
               mountPath: "/var/openfaas/secrets"
               readOnly: true
             env:
@@ -56,15 +56,15 @@ spec:
               value: "politics"
           restartPolicy: Never
           volumes:
-          - name: f5-secret
+          - name: f5oclock-secret
             secret:
-              secretName: f5-mongouri
+              secretName: f5oclock-mongouri
 ---
 apiVersion: batch/v1
 kind: CronJob
 metadata:
-  name: f5-scrape-all
-  namespace: openfaas-fn
+  name: f5oclock-scraper-all
+  namespace: f5
 spec:
   schedule: "* * * * *"
   successfulJobsHistoryLimit: 1
@@ -75,11 +75,11 @@ spec:
       template:
         spec:
           containers:
-          - name: f5-fetch-data
-            image: fairbanksio/f5-fetch-data:1.0.9
+          - name: f5oclock-scraper
+            image: fairbanksio/f5oclock-scraper:1.0.8
             imagePullPolicy: IfNotPresent
             volumeMounts:
-            - name: f5-secret
+            - name: f5oclock-secret
               mountPath: "/var/openfaas/secrets"
               readOnly: true
             env:
@@ -87,6 +87,6 @@ spec:
               value: "all"
           restartPolicy: Never
           volumes:
-          - name: f5-secret
+          - name: f5oclock-secret
             secret:
-              secretName: f5-mongouri
+              secretName: f5oclock-mongouri

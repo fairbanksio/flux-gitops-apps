@@ -22,7 +22,7 @@ spec:
     operator:
       create: true
     queueWorker:
-      replicas: 10
+      replicas: 20
       ackWait: 5m
     gateway:
       readTimeout: 5m

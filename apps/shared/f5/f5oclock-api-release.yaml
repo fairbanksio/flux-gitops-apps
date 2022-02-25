@@ -6,6 +6,6 @@ metadata:
   namespace: f5
 spec:
   name: f5oclock-api
-  image: fairbanksio/f5oclock-api:1.0.19
+  image: fairbanksio/f5oclock-api:1.0.20
   secrets:
     - f5oclock-mongouri

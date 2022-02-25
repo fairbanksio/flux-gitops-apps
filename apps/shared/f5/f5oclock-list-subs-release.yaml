@@ -6,6 +6,6 @@ metadata:
   namespace: f5
 spec:
   name: f5oclock-list-subs
-  image: fairbanksio/f5oclock-list-subs:1.0.2
+  image: fairbanksio/f5oclock-list-subs:1.0.1
   secrets:
     - f5oclock-mongouri

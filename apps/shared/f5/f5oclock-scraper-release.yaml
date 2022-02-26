@@ -1,37 +1,6 @@
 apiVersion: batch/v1
 kind: CronJob
 metadata:
-  name: f5oclock-scraper-worldnewsvideo
-  namespace: f5
-spec:
-  schedule: "* * * * *"
-  successfulJobsHistoryLimit: 1
-  failedJobsHistoryLimit: 3
-  jobTemplate:
-    spec:
-      backoffLimit: 0
-      template:
-        spec:
-          containers:
-          - name: f5oclock-scraper
-            image: fairbanksio/f5oclock-scraper:1.0.16
-            imagePullPolicy: IfNotPresent
-            volumeMounts:
-            - name: f5oclock-secret
-              mountPath: "/var/openfaas/secrets"
-              readOnly: true
-            env:
-            - name: SUBREDDIT
-              value: "worldnewsvideo"
-          restartPolicy: Never
-          volumes:
-          - name: f5oclock-secret
-            secret:
-              secretName: f5oclock-mongouri
----
-apiVersion: batch/v1
-kind: CronJob
-metadata:
   name: f5oclock-scraper-politics
   namespace: f5
 spec:
@@ -45,7 +14,7 @@ spec:
         spec:
           containers:
           - name: f5oclock-scraper
-            image: fairbanksio/f5oclock-scraper:1.0.16
+            image: fairbanksio/f5oclock-scraper:1.0.17
             imagePullPolicy: IfNotPresent
             volumeMounts:
             - name: f5oclock-secret
@@ -76,7 +45,7 @@ spec:
         spec:
           containers:
           - name: f5oclock-scraper
-            image: fairbanksio/f5oclock-scraper:1.0.16
+            image: fairbanksio/f5oclock-scraper:1.0.17
             imagePullPolicy: IfNotPresent
             volumeMounts:
             - name: f5oclock-secret
@@ -85,6 +54,285 @@ spec:
             env:
             - name: SUBREDDIT
               value: "all"
+          restartPolicy: Never
+          volumes:
+          - name: f5oclock-secret
+            secret:
+              secretName: f5oclock-mongouri
+---
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: f5oclock-scraper-news
+  namespace: f5
+spec:
+  schedule: "* * * * *"
+  successfulJobsHistoryLimit: 1
+  failedJobsHistoryLimit: 3
+  jobTemplate:
+    spec:
+      backoffLimit: 0
+      template:
+        spec:
+          containers:
+          - name: f5oclock-scraper
+            image: fairbanksio/f5oclock-scraper:1.0.17
+            imagePullPolicy: IfNotPresent
+            volumeMounts:
+            - name: f5oclock-secret
+              mountPath: "/var/openfaas/secrets"
+              readOnly: true
+            env:
+            - name: SUBREDDIT
+              value: "news"
+          restartPolicy: Never
+          volumes:
+          - name: f5oclock-secret
+            secret:
+              secretName: f5oclock-mongouri
+---
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: f5oclock-scraper-worldnews
+  namespace: f5
+spec:
+  schedule: "* * * * *"
+  successfulJobsHistoryLimit: 1
+  failedJobsHistoryLimit: 3
+  jobTemplate:
+    spec:
+      backoffLimit: 0
+      template:
+        spec:
+          containers:
+          - name: f5oclock-scraper
+            image: fairbanksio/f5oclock-scraper:1.0.17
+            imagePullPolicy: IfNotPresent
+            volumeMounts:
+            - name: f5oclock-secret
+              mountPath: "/var/openfaas/secrets"
+              readOnly: true
+            env:
+            - name: SUBREDDIT
+              value: "worldnews"
+          restartPolicy: Never
+          volumes:
+          - name: f5oclock-secret
+            secret:
+              secretName: f5oclock-mongouri
+---
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: f5oclock-scraper-technology
+  namespace: f5
+spec:
+  schedule: "* * * * *"
+  successfulJobsHistoryLimit: 1
+  failedJobsHistoryLimit: 3
+  jobTemplate:
+    spec:
+      backoffLimit: 0
+      template:
+        spec:
+          containers:
+          - name: f5oclock-scraper
+            image: fairbanksio/f5oclock-scraper:1.0.17
+            imagePullPolicy: IfNotPresent
+            volumeMounts:
+            - name: f5oclock-secret
+              mountPath: "/var/openfaas/secrets"
+              readOnly: true
+            env:
+            - name: SUBREDDIT
+              value: "technology"
+          restartPolicy: Never
+          volumes:
+          - name: f5oclock-secret
+            secret:
+              secretName: f5oclock-mongouri
+---
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: f5oclock-scraper-cryptocurrency
+  namespace: f5
+spec:
+  schedule: "* * * * *"
+  successfulJobsHistoryLimit: 1
+  failedJobsHistoryLimit: 3
+  jobTemplate:
+    spec:
+      backoffLimit: 0
+      template:
+        spec:
+          containers:
+          - name: f5oclock-scraper
+            image: fairbanksio/f5oclock-scraper:1.0.17
+            imagePullPolicy: IfNotPresent
+            volumeMounts:
+            - name: f5oclock-secret
+              mountPath: "/var/openfaas/secrets"
+              readOnly: true
+            env:
+            - name: SUBREDDIT
+              value: "CryptoCurrency"
+          restartPolicy: Never
+          volumes:
+          - name: f5oclock-secret
+            secret:
+              secretName: f5oclock-mongouri
+---
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: f5oclock-scraper-history
+  namespace: f5
+spec:
+  schedule: "* * * * *"
+  successfulJobsHistoryLimit: 1
+  failedJobsHistoryLimit: 3
+  jobTemplate:
+    spec:
+      backoffLimit: 0
+      template:
+        spec:
+          containers:
+          - name: f5oclock-scraper
+            image: fairbanksio/f5oclock-scraper:1.0.17
+            imagePullPolicy: IfNotPresent
+            volumeMounts:
+            - name: f5oclock-secret
+              mountPath: "/var/openfaas/secrets"
+              readOnly: true
+            env:
+            - name: SUBREDDIT
+              value: "history"
+          restartPolicy: Never
+          volumes:
+          - name: f5oclock-secret
+            secret:
+              secretName: f5oclock-mongouri
+---
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: f5oclock-scraper-science
+  namespace: f5
+spec:
+  schedule: "* * * * *"
+  successfulJobsHistoryLimit: 1
+  failedJobsHistoryLimit: 3
+  jobTemplate:
+    spec:
+      backoffLimit: 0
+      template:
+        spec:
+          containers:
+          - name: f5oclock-scraper
+            image: fairbanksio/f5oclock-scraper:1.0.17
+            imagePullPolicy: IfNotPresent
+            volumeMounts:
+            - name: f5oclock-secret
+              mountPath: "/var/openfaas/secrets"
+              readOnly: true
+            env:
+            - name: SUBREDDIT
+              value: "science"
+          restartPolicy: Never
+          volumes:
+          - name: f5oclock-secret
+            secret:
+              secretName: f5oclock-mongouri
+---
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: f5oclock-scraper-europe
+  namespace: f5
+spec:
+  schedule: "* * * * *"
+  successfulJobsHistoryLimit: 1
+  failedJobsHistoryLimit: 3
+  jobTemplate:
+    spec:
+      backoffLimit: 0
+      template:
+        spec:
+          containers:
+          - name: f5oclock-scraper
+            image: fairbanksio/f5oclock-scraper:1.0.17
+            imagePullPolicy: IfNotPresent
+            volumeMounts:
+            - name: f5oclock-secret
+              mountPath: "/var/openfaas/secrets"
+              readOnly: true
+            env:
+            - name: SUBREDDIT
+              value: "europe"
+          restartPolicy: Never
+          volumes:
+          - name: f5oclock-secret
+            secret:
+              secretName: f5oclock-mongouri
+---
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: f5oclock-scraper-space
+  namespace: f5
+spec:
+  schedule: "* * * * *"
+  successfulJobsHistoryLimit: 1
+  failedJobsHistoryLimit: 3
+  jobTemplate:
+    spec:
+      backoffLimit: 0
+      template:
+        spec:
+          containers:
+          - name: f5oclock-scraper
+            image: fairbanksio/f5oclock-scraper:1.0.17
+            imagePullPolicy: IfNotPresent
+            volumeMounts:
+            - name: f5oclock-secret
+              mountPath: "/var/openfaas/secrets"
+              readOnly: true
+            env:
+            - name: SUBREDDIT
+              value: "space"
+          restartPolicy: Never
+          volumes:
+          - name: f5oclock-secret
+            secret:
+              secretName: f5oclock-mongouri
+---
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: f5oclock-scraper-upliftingnews
+  namespace: f5
+spec:
+  schedule: "* * * * *"
+  successfulJobsHistoryLimit: 1
+  failedJobsHistoryLimit: 3
+  jobTemplate:
+    spec:
+      backoffLimit: 0
+      template:
+        spec:
+          containers:
+          - name: f5oclock-scraper
+            image: fairbanksio/f5oclock-scraper:1.0.17
+            imagePullPolicy: IfNotPresent
+            volumeMounts:
+            - name: f5oclock-secret
+              mountPath: "/var/openfaas/secrets"
+              readOnly: true
+            env:
+            - name: SUBREDDIT
+              value: "UpliftingNews"
           restartPolicy: Never
           volumes:
           - name: f5oclock-secret

@@ -17,6 +17,7 @@ spec:
   targetNamespace: f5
   values:
     apiURL: https://fn.bsord.dev/function/f5oclock-api.f5
+    listsubsURL: https://fn.bsord.dev/function/f5oclock-list-subs.f5
     ingress:
       enabled: true
       annotations:

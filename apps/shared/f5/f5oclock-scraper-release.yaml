@@ -218,7 +218,7 @@ spec:
 apiVersion: batch/v1
 kind: CronJob
 metadata:
-  name: f5oclock-scraper-cybersecurity
+  name: f5oclock-scraper-all-europe
   namespace: f5
 spec:
   schedule: "* * * * *"
@@ -239,7 +239,7 @@ spec:
               readOnly: true
             env:
             - name: SUBREDDIT
-              value: "cybersecurity"
+              value: "Denmark+Polska+Romania+Sakartvelo+Scotland+Switzerland+Turkey+UkrainianConflict+belgium+croatia+europe+france+germany+greece+hungary+ireland+poland+portugal+serbia+sweden+thenetherlands+ukpolitics+ukraina+ukraine+unitedkingdom"
           restartPolicy: Never
           volumes:
           - name: f5oclock-secret

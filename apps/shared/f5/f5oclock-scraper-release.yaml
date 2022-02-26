@@ -125,37 +125,6 @@ spec:
 apiVersion: batch/v1
 kind: CronJob
 metadata:
-  name: f5oclock-scraper-europe
-  namespace: f5
-spec:
-  schedule: "* * * * *"
-  successfulJobsHistoryLimit: 1
-  failedJobsHistoryLimit: 3
-  jobTemplate:
-    spec:
-      backoffLimit: 0
-      template:
-        spec:
-          containers:
-          - name: f5oclock-scraper
-            image: fairbanksio/f5oclock-scraper:1.0.17
-            imagePullPolicy: IfNotPresent
-            volumeMounts:
-            - name: f5oclock-secret
-              mountPath: "/var/openfaas/secrets"
-              readOnly: true
-            env:
-            - name: SUBREDDIT
-              value: "europe"
-          restartPolicy: Never
-          volumes:
-          - name: f5oclock-secret
-            secret:
-              secretName: f5oclock-mongouri
----
-apiVersion: batch/v1
-kind: CronJob
-metadata:
   name: f5oclock-scraper-ukranianconflict
   namespace: f5
 spec:
@@ -240,6 +209,37 @@ spec:
             env:
             - name: SUBREDDIT
               value: "Denmark+Polska+Romania+Sakartvelo+Scotland+Switzerland+Turkey+UkrainianConflict+belgium+croatia+europe+france+germany+greece+hungary+ireland+poland+portugal+serbia+sweden+thenetherlands+ukpolitics+ukraina+ukraine+unitedkingdom"
+          restartPolicy: Never
+          volumes:
+          - name: f5oclock-secret
+            secret:
+              secretName: f5oclock-mongouri
+---
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: f5oclock-scraper-nextfuckinglevel
+  namespace: f5
+spec:
+  schedule: "* * * * *"
+  successfulJobsHistoryLimit: 1
+  failedJobsHistoryLimit: 3
+  jobTemplate:
+    spec:
+      backoffLimit: 0
+      template:
+        spec:
+          containers:
+          - name: f5oclock-scraper
+            image: fairbanksio/f5oclock-scraper:1.0.17
+            imagePullPolicy: IfNotPresent
+            volumeMounts:
+            - name: f5oclock-secret
+              mountPath: "/var/openfaas/secrets"
+              readOnly: true
+            env:
+            - name: SUBREDDIT
+              value: "nextfuckinglevel"
           restartPolicy: Never
           volumes:
           - name: f5oclock-secret

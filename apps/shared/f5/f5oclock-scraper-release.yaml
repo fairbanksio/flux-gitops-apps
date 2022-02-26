@@ -22,7 +22,7 @@ spec:
               readOnly: true
             env:
             - name: SUBREDDIT
-              value: "superstonk"
+              value: "worldnewsvideo"
           restartPolicy: Never
           volumes:
           - name: f5oclock-secret

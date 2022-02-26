@@ -1,7 +1,7 @@
 apiVersion: batch/v1
 kind: CronJob
 metadata:
-  name: f5oclock-scraper-superstonk
+  name: f5oclock-scraper-worldnewsvideo
   namespace: f5
 spec:
   schedule: "* * * * *"

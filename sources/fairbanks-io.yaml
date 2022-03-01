@@ -5,5 +5,5 @@ metadata:
   name: fairbanks-io
   namespace: flux-system
 spec:
-  interval: 1m
+  interval: 5m
   url: https://fairbanks-io.github.io/helm-charts

@@ -4,5 +4,5 @@ metadata:
   name: kubernetes
   namespace: flux-system
 spec:
-  interval: 23h0m0s
+  interval: 24h0m0s
   url: https://kubernetes.github.io/ingress-nginx

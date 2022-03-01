@@ -25,4 +25,7 @@ spec:
       hosts:
         - host: f5.bsord.dev
           paths:
+            - "/"
+        - host: f5.news
+          paths:
             - "/" 

@@ -19,7 +19,7 @@ spec:
     replicas: 1
     minAvailable: 1
     factorioServer:
-      save_name: "k8s_factorio",
+      save_name: "k8s_factorio"
       update_mods_on_start: true
     serverSettings:
       username:

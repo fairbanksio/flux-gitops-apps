@@ -33,33 +33,33 @@ spec:
         - host: factorio.fairbanks.dev
           paths:
             - "/"
-    factorioServer:
-      save_name: "k8s_factorio",
-      update_mods_on_start: true
-    serverSettings:
-      username:
-        valueFrom:
-          secretKeyRef:
-            name: factorio
-            key: username
-      password:
-        valueFrom:
-          secretKeyRef:
-            name: factorio
-            key: password
-      token:
-        valueFrom:
-          secretKeyRef:
-            name: factorio
-            key: token
-      game_password:
-        valueFrom:
-          secretKeyRef:
-            name: factorio
-            key: game_password
-    map_gen_settings:
-      peaceful_mode: true
-    mods:
-      enabled: true
-      portal:
-        - early-robots
+  factorioServer:
+    save_name: "k8s_factorio",
+    update_mods_on_start: true
+  serverSettings:
+    username:
+      valueFrom:
+        secretKeyRef:
+          name: factorio
+          key: username
+    password:
+      valueFrom:
+        secretKeyRef:
+          name: factorio
+          key: password
+    token:
+      valueFrom:
+        secretKeyRef:
+          name: factorio
+          key: token
+    game_password:
+      valueFrom:
+        secretKeyRef:
+          name: factorio
+          key: game_password
+  map_gen_settings:
+    peaceful_mode: true
+  mods:
+    enabled: true
+    portal:
+      - early-robots

@@ -18,13 +18,36 @@ spec:
   values:
     replicas: 1
     minAvailable: 1
-    topologySpreadConstraints:
-      - labelSelector:
-          matchLabels:
-            app.kubernetes.io/instance: factorio-factorio
-        maxSkew: 1
-        topologyKey: kubernetes.io/hostname
-        whenUnsatisfiable: ScheduleAnyway
+    factorioServer:
+      save_name: "k8s_factorio",
+      update_mods_on_start: true
+    serverSettings:
+      username:
+        valueFrom:
+          secretKeyRef:
+            name: factorio
+            key: username
+      password:
+        valueFrom:
+          secretKeyRef:
+            name: factorio
+            key: password
+      token:
+        valueFrom:
+          secretKeyRef:
+            name: factorio
+            key: token
+      game_password:
+        valueFrom:
+          secretKeyRef:
+            name: factorio
+            key: game_password
+    map_gen_settings:
+      peaceful_mode: true
+    mods:
+      enabled: true
+      portal:
+        - early-robots
     ingress:
       enabled: true
       annotations:
@@ -33,33 +56,3 @@ spec:
         - host: factorio.fairbanks.dev
           paths:
             - "/"
-  factorioServer:
-    save_name: "k8s_factorio",
-    update_mods_on_start: true
-  serverSettings:
-    username:
-      valueFrom:
-        secretKeyRef:
-          name: factorio
-          key: username
-    password:
-      valueFrom:
-        secretKeyRef:
-          name: factorio
-          key: password
-    token:
-      valueFrom:
-        secretKeyRef:
-          name: factorio
-          key: token
-    game_password:
-      valueFrom:
-        secretKeyRef:
-          name: factorio
-          key: game_password
-  map_gen_settings:
-    peaceful_mode: true
-  mods:
-    enabled: true
-    portal:
-      - early-robots

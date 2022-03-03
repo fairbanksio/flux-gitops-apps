@@ -9,3 +9,30 @@ spec:
   image: fairbanksio/f5oclock-api:1.0.20
   secrets:
     - f5oclock-mongouri
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: f5oclock-api
+  namespace: f5
+spec:
+  chart:
+    spec:
+      chart: f5oclock-api
+      version: 1.x.x
+      sourceRef:
+        kind: HelmRepository
+        name: fairbanks-io
+        namespace: flux-system
+  interval: 30s
+  targetNamespace: f5
+  values:
+    secretName: f5oclock-mongouri
+    ingress:
+      enabled: true
+      annotations:
+        kubernetes.io/ingress.class: nginx
+      hosts:
+        - host: api.f5.news
+          paths:
+            - "/" 

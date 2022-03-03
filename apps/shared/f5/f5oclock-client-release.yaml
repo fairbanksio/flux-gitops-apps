@@ -16,8 +16,7 @@ spec:
   interval: 30s
   targetNamespace: f5
   values:
-    apiURL: https://fn.bsord.dev/function/f5oclock-api.f5
-    listsubsURL: https://fn.bsord.dev/function/f5oclock-list-subs.f5
+    apiURL: https://api.f5.news
     ingress:
       enabled: true
       annotations:

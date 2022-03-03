@@ -1,15 +1,3 @@
----
-apiVersion: openfaas.com/v1
-kind: Function
-metadata:
-  name: f5oclock-api
-  namespace: f5
-spec:
-  name: f5oclock-api
-  image: fairbanksio/f5oclock-api:1.0.20
-  secrets:
-    - f5oclock-mongouri
----
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:

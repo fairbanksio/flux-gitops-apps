@@ -18,6 +18,7 @@ spec:
   values:
     replicas: 1
     minAvailable: 1
+    fullnameOverride: factorio
     factorioServer:
       save_name: "k8s_factorio"
       update_mods_on_start: true
@@ -53,6 +54,6 @@ spec:
       annotations:
         kubernetes.io/ingress.class: nginx
       hosts:
-        - host: factorio.fairbanks.dev
+        - host: fairbanks.dev
           paths:
             - "/"

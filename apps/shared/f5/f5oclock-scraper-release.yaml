@@ -1,247 +1,27 @@
-apiVersion: batch/v1
-kind: CronJob
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
 metadata:
-  name: f5oclock-scraper-politics
+  name: f5oclock-scraper
   namespace: f5
 spec:
-  schedule: "* * * * *"
-  successfulJobsHistoryLimit: 1
-  failedJobsHistoryLimit: 3
-  jobTemplate:
+  chart:
     spec:
-      backoffLimit: 0
-      template:
-        spec:
-          containers:
-          - name: f5oclock-scraper
-            image: fairbanksio/f5oclock-scraper:1.0.17
-            imagePullPolicy: IfNotPresent
-            volumeMounts:
-            - name: f5oclock-secret
-              mountPath: "/var/openfaas/secrets"
-              readOnly: true
-            env:
-            - name: SUBREDDIT
-              value: "politics"
-          restartPolicy: Never
-          volumes:
-          - name: f5oclock-secret
-            secret:
-              secretName: f5oclock-mongouri
----
-apiVersion: batch/v1
-kind: CronJob
-metadata:
-  name: f5oclock-scraper-all
-  namespace: f5
-spec:
-  schedule: "* * * * *"
-  successfulJobsHistoryLimit: 1
-  failedJobsHistoryLimit: 3
-  jobTemplate:
-    spec:
-      backoffLimit: 0
-      template:
-        spec:
-          containers:
-          - name: f5oclock-scraper
-            image: fairbanksio/f5oclock-scraper:1.0.17
-            imagePullPolicy: IfNotPresent
-            volumeMounts:
-            - name: f5oclock-secret
-              mountPath: "/var/openfaas/secrets"
-              readOnly: true
-            env:
-            - name: SUBREDDIT
-              value: "all"
-          restartPolicy: Never
-          volumes:
-          - name: f5oclock-secret
-            secret:
-              secretName: f5oclock-mongouri
----
-apiVersion: batch/v1
-kind: CronJob
-metadata:
-  name: f5oclock-scraper-worldnews
-  namespace: f5
-spec:
-  schedule: "* * * * *"
-  successfulJobsHistoryLimit: 1
-  failedJobsHistoryLimit: 3
-  jobTemplate:
-    spec:
-      backoffLimit: 0
-      template:
-        spec:
-          containers:
-          - name: f5oclock-scraper
-            image: fairbanksio/f5oclock-scraper:1.0.17
-            imagePullPolicy: IfNotPresent
-            volumeMounts:
-            - name: f5oclock-secret
-              mountPath: "/var/openfaas/secrets"
-              readOnly: true
-            env:
-            - name: SUBREDDIT
-              value: "worldnews"
-          restartPolicy: Never
-          volumes:
-          - name: f5oclock-secret
-            secret:
-              secretName: f5oclock-mongouri
----
-apiVersion: batch/v1
-kind: CronJob
-metadata:
-  name: f5oclock-scraper-cryptocurrency
-  namespace: f5
-spec:
-  schedule: "* * * * *"
-  successfulJobsHistoryLimit: 1
-  failedJobsHistoryLimit: 3
-  jobTemplate:
-    spec:
-      backoffLimit: 0
-      template:
-        spec:
-          containers:
-          - name: f5oclock-scraper
-            image: fairbanksio/f5oclock-scraper:1.0.17
-            imagePullPolicy: IfNotPresent
-            volumeMounts:
-            - name: f5oclock-secret
-              mountPath: "/var/openfaas/secrets"
-              readOnly: true
-            env:
-            - name: SUBREDDIT
-              value: "CryptoCurrency"
-          restartPolicy: Never
-          volumes:
-          - name: f5oclock-secret
-            secret:
-              secretName: f5oclock-mongouri
----
-apiVersion: batch/v1
-kind: CronJob
-metadata:
-  name: f5oclock-scraper-ukranianconflict
-  namespace: f5
-spec:
-  schedule: "* * * * *"
-  successfulJobsHistoryLimit: 1
-  failedJobsHistoryLimit: 3
-  jobTemplate:
-    spec:
-      backoffLimit: 0
-      template:
-        spec:
-          containers:
-          - name: f5oclock-scraper
-            image: fairbanksio/f5oclock-scraper:1.0.17
-            imagePullPolicy: IfNotPresent
-            volumeMounts:
-            - name: f5oclock-secret
-              mountPath: "/var/openfaas/secrets"
-              readOnly: true
-            env:
-            - name: SUBREDDIT
-              value: "UkrainianConflict"
-          restartPolicy: Never
-          volumes:
-          - name: f5oclock-secret
-            secret:
-              secretName: f5oclock-mongouri
----
-apiVersion: batch/v1
-kind: CronJob
-metadata:
-  name: f5oclock-scraper-russiaukrainewar2022
-  namespace: f5
-spec:
-  schedule: "* * * * *"
-  successfulJobsHistoryLimit: 1
-  failedJobsHistoryLimit: 3
-  jobTemplate:
-    spec:
-      backoffLimit: 0
-      template:
-        spec:
-          containers:
-          - name: f5oclock-scraper
-            image: fairbanksio/f5oclock-scraper:1.0.17
-            imagePullPolicy: IfNotPresent
-            volumeMounts:
-            - name: f5oclock-secret
-              mountPath: "/var/openfaas/secrets"
-              readOnly: true
-            env:
-            - name: SUBREDDIT
-              value: "RussiaUkraineWar2022"
-          restartPolicy: Never
-          volumes:
-          - name: f5oclock-secret
-            secret:
-              secretName: f5oclock-mongouri
----
-apiVersion: batch/v1
-kind: CronJob
-metadata:
-  name: f5oclock-scraper-all-europe
-  namespace: f5
-spec:
-  schedule: "* * * * *"
-  successfulJobsHistoryLimit: 1
-  failedJobsHistoryLimit: 3
-  jobTemplate:
-    spec:
-      backoffLimit: 0
-      template:
-        spec:
-          containers:
-          - name: f5oclock-scraper
-            image: fairbanksio/f5oclock-scraper:1.0.17
-            imagePullPolicy: IfNotPresent
-            volumeMounts:
-            - name: f5oclock-secret
-              mountPath: "/var/openfaas/secrets"
-              readOnly: true
-            env:
-            - name: SUBREDDIT
-              value: "Denmark+Polska+Romania+Sakartvelo+Scotland+Switzerland+Turkey+UkrainianConflict+belgium+croatia+europe+france+germany+greece+hungary+ireland+poland+portugal+serbia+sweden+thenetherlands+ukpolitics+ukraina+ukraine+unitedkingdom"
-          restartPolicy: Never
-          volumes:
-          - name: f5oclock-secret
-            secret:
-              secretName: f5oclock-mongouri
----
-apiVersion: batch/v1
-kind: CronJob
-metadata:
-  name: f5oclock-scraper-nextfuckinglevel
-  namespace: f5
-spec:
-  schedule: "* * * * *"
-  successfulJobsHistoryLimit: 1
-  failedJobsHistoryLimit: 3
-  jobTemplate:
-    spec:
-      backoffLimit: 0
-      template:
-        spec:
-          containers:
-          - name: f5oclock-scraper
-            image: fairbanksio/f5oclock-scraper:1.0.17
-            imagePullPolicy: IfNotPresent
-            volumeMounts:
-            - name: f5oclock-secret
-              mountPath: "/var/openfaas/secrets"
-              readOnly: true
-            env:
-            - name: SUBREDDIT
-              value: "nextfuckinglevel"
-          restartPolicy: Never
-          volumes:
-          - name: f5oclock-secret
-            secret:
-              secretName: f5oclock-mongouri
+      chart: f5oclock-scraper
+      version: 1.x.x
+      sourceRef:
+        kind: HelmRepository
+        name: fairbanks-io
+        namespace: flux-system
+  interval: 30s
+  targetNamespace: f5
+  values:
+    secretName: f5oclock-mongouri
+    subreddits:
+      - "politics"
+      - "all"
+      - "worldnews"
+      - "CryptoCurrency"
+      - "UkrainianConflict"
+      - "RussiaUkraineWar2022"
+      - "Denmark+Polska+Romania+Sakartvelo+Scotland+Switzerland+Turkey+UkrainianConflict+belgium+croatia+europe+france+germany+greece+hungary+ireland+poland+portugal+serbia+sweden+thenetherlands+ukpolitics+ukraina+ukraine+unitedkingdom"
+      - "nextfuckinglevel"

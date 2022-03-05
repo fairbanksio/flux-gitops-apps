@@ -1,7 +1,7 @@
 apiVersion: source.toolkit.fluxcd.io/v1beta1
 kind: HelmRepository
 metadata:
-  name: factorio-charts
+  name: factorio-server-charts
   namespace: flux-system
 spec:
   interval: 24h0m0s

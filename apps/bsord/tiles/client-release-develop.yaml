@@ -2,13 +2,13 @@
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
-  name: tiles-client
+  name: tiles-client-dev
   namespace: tiles
 spec:
   chart:
     spec:
       chart: tiles-client
-      version: 1.x.x
+      version: ">0.0.0-0"
       sourceRef:
         kind: HelmRepository
         name: bsord
@@ -21,25 +21,15 @@ spec:
     replicas: 1
     minAvailable: 1
     autoscaling:
-      enabled: true
-      minReplicas: 2
-      maxReplicas: 3
-      targetCPUUtilizationPercentage: 50
+      enabled: false
     resources:
       requests:
         cpu: 25m
-    topologySpreadConstraints:
-      - labelSelector:
-          matchLabels:
-            app.kubernetes.io/instance: tiles-tiles-client
-        maxSkew: 1
-        topologyKey: kubernetes.io/hostname
-        whenUnsatisfiable: ScheduleAnyway
     ingress:
       enabled: true
       annotations:
         kubernetes.io/ingress.class: nginx
       hosts:
-        - host: popcan.io
+        - host: dev.popcan.io
           paths:
             - "/" 

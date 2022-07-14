@@ -50,3 +50,5 @@ spec:
         maxSkew: 1
         topologyKey: kubernetes.io/hostname
         whenUnsatisfiable: ScheduleAnyway
+    udp:
+      30000: factorio/factorio:30000

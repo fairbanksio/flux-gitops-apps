@@ -29,7 +29,7 @@ spec:
         cpu: 50m
         memory: 200Mi
       service:
-        name: nginx-ingress-controller
+        name: ingress-nginx-controller
         annotations:
           service.beta.kubernetes.io/do-loadbalancer-enable-proxy-protocol: true
       publishService:
@@ -46,7 +46,7 @@ spec:
       topologySpreadConstraints:
       - labelSelector:
           matchLabels:
-            app.kubernetes.io/instance: kube-system-nginx-ingress
+            app.kubernetes.io/instance: kube-system-ingress-nginx
         maxSkew: 1
         topologyKey: kubernetes.io/hostname
         whenUnsatisfiable: ScheduleAnyway

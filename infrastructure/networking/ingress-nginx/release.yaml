@@ -1,0 +1,52 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: nginx-ingress
+  namespace: kube-system
+spec:
+  chart:
+    spec:
+      chart: ingress-nginx
+      sourceRef:
+        kind: HelmRepository
+        name: kubernetes
+        namespace: flux-system
+  interval: 1h
+  targetNamespace: kube-system
+  values:
+    rbac:
+      create: true
+    controller:
+      autoscaling:
+        enabled: true
+        minReplicas: 2
+        maxReplicas: 3
+        targetCPUUtilizationPercentage: 50
+      limits:
+        cpu: 200m
+      requests:
+        cpu: 50m
+        memory: 200Mi
+      service:
+        name: nginx-ingress-controller
+        annotations:
+          service.beta.kubernetes.io/do-loadbalancer-enable-proxy-protocol: true
+      publishService:
+        enabled: true
+      config:
+        annotation-value-word-blocklist: "load_module,lua_package,_by_lua,root,proxy_pass,serviceaccount"
+        use-proxy-protocol: "true"
+        proxy-body-size: 250m
+        client-max-body-size: 250m
+        proxy-connect-timeout: "60"
+        proxy-read-timeout: "60"
+      affinity:
+      # An example of required pod anti-affinity
+      topologySpreadConstraints:
+      - labelSelector:
+          matchLabels:
+            app.kubernetes.io/instance: kube-system-nginx-ingress
+        maxSkew: 1
+        topologyKey: kubernetes.io/hostname
+        whenUnsatisfiable: ScheduleAnyway

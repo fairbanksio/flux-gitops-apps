@@ -17,6 +17,8 @@ spec:
   values:
     rbac:
       create: true
+    udp:
+      30000: "factorio/factorio:30000"
     controller:
       autoscaling:
         enabled: true

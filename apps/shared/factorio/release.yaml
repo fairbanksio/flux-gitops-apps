@@ -51,11 +51,4 @@ spec:
       enabled: true
       portal:
         - early-robots
-    ingress:
-      enabled: true
-      annotations:
-        kubernetes.io/ingress.class: nginx
-      hosts:
-        - host: fairbanks.dev
-          paths:
-            - "/"
+    

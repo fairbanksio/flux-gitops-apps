@@ -16,6 +16,8 @@ spec:
   interval: 30s
   targetNamespace: factorio
   values:
+    service:
+      type: "ClusterIP"
     replicas: 1
     minAvailable: 1
     fullnameOverride: factorio
@@ -50,7 +52,7 @@ spec:
       portal:
         - early-robots
     ingress:
-      enabled: false
+      enabled: true
       annotations:
         kubernetes.io/ingress.class: nginx
       hosts:

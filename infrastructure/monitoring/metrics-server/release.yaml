@@ -15,12 +15,4 @@ spec:
         namespace: flux-system
   interval: 6h
   targetNamespace: kube-system
-  values:
-    hostNetwork: true
-    extraArgs:
-      kubelet-preferred-address-types: InternalIP
-      kubelet-insecure-tls: true
-    replicas: 2
-    podDisruptionBudget:
-      enabled: true
-      minAvailable: 1 
+  

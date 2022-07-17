@@ -17,6 +17,8 @@ spec:
   values:
     rbac:
       create: true
+    udp:
+      "30000": "factorio/factorio:30000"
     controller:
       autoscaling:
         enabled: true
@@ -35,25 +37,7 @@ spec:
       publishService:
         enabled: true
       config:
-        stream-snippet: |
-          server {
-                  preread_by_lua_block {
-                          ngx.var.proxy_upstream_name="udp-factorio-factorio-30000";
-                  }
-
-                  listen                  30000 udp;
-
-                  listen                  [::]:30000 udp;
-
-                  proxy_responses         1;
-                  proxy_timeout           600s;
-                  proxy_next_upstream     on;
-                  proxy_next_upstream_timeout 600s;
-                  proxy_next_upstream_tries   3;
-                  proxy_pass              upstream_balancer;
-                  
-          }
-        annotation-value-word-blocklist: "load_module,root,serviceaccount"
+        annotation-value-word-blocklist: "load_module,lua_package,_by_lua,root,proxy_pass,serviceaccount"
         use-proxy-protocol: "true"
         proxy-body-size: 250m
         client-max-body-size: 250m

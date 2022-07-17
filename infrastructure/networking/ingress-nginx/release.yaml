@@ -17,8 +17,6 @@ spec:
   values:
     rbac:
       create: true
-    udp:
-      "30000": "factorio/factorio:30000"
     controller:
       autoscaling:
         enabled: true
@@ -37,7 +35,18 @@ spec:
       publishService:
         enabled: true
       config:
-        annotation-value-word-blocklist: "load_module,lua_package,_by_lua,root,proxy_pass,serviceaccount"
+        stream-snippet: |
+          upstream factorio-udp {
+            server factorio.factorio.svc.cluster.local:30000;
+          }
+
+          server {
+            listen 30000 udp;
+            proxy_responses 0;
+            proxy_bind $remote_addr transparent;
+            proxy_pass factorio-udp;
+          }
+        annotation-value-word-blocklist: "load_module,root,serviceaccount"
         use-proxy-protocol: "true"
         proxy-body-size: 250m
         client-max-body-size: 250m

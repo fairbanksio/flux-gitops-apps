@@ -45,12 +45,11 @@ spec:
 
                   listen                  [::]:30000 udp;
 
-                  proxy_responses         0;
+                  proxy_responses         1;
                   proxy_timeout           600s;
                   proxy_next_upstream     on;
                   proxy_next_upstream_timeout 600s;
                   proxy_next_upstream_tries   3;
-                  proxy_bind $remote_addr transparent;
                   proxy_pass              upstream_balancer;
                   
           }

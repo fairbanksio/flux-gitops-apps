@@ -16,8 +16,6 @@ spec:
   interval: 30s
   targetNamespace: factorio
   values:
-    service:
-      type: "NodePort"
     replicas: 1
     minAvailable: 1
     fullnameOverride: factorio

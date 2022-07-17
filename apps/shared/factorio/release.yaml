@@ -17,7 +17,7 @@ spec:
   targetNamespace: factorio
   values:
     service:
-      type: "ClusterIP"
+      type: "NodePort"
     replicas: 1
     minAvailable: 1
     fullnameOverride: factorio

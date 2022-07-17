@@ -41,7 +41,7 @@ spec:
           }
 
           server {
-            listen 20000 udp;
+            listen 30000 udp;
             proxy_responses 0;
             proxy_bind $remote_addr transparent;
             proxy_pass factorio-udp;

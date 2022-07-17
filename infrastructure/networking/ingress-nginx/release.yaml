@@ -17,8 +17,6 @@ spec:
   values:
     rbac:
       create: true
-    udp:
-      "30000": "factorio/factorio:30000"
     controller:
       autoscaling:
         enabled: true
@@ -43,9 +41,9 @@ spec:
                           ngx.var.proxy_upstream_name="udp-factorio-factorio-30000";
                   }
 
-                  listen                  29999 udp;
+                  listen                  30000 udp;
 
-                  listen                  [::]:29999 udp;
+                  listen                  [::]:30000 udp;
 
                   proxy_responses         1;
                   proxy_timeout           600s;

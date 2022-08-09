@@ -15,12 +15,13 @@ spec:
   interval: 6h
   targetNamespace: datadog
   values:
+    clusterAgent:
+        replicas: 2
+        createPodDisruptionBudget: true
     datadog:
       processAgent:
         processCollection: false
-      clusterAgent:
-        replicas: 2
-        createPodDisruptionBudget: true
+      
       dogstatsd:
         useHostPort: true
       networkMonitoring:

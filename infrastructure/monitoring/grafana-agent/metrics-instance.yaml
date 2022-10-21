@@ -10,11 +10,15 @@ spec:
   - url: https://prometheus-prod-10-prod-us-central-0.grafana.net/api/prom/push
     basicAuth:
       username:
-        name: primary-credentials-metrics
-        key: username
+        valueFrom:
+          secretKeyRef:
+            name: prometheus
+            key: username
       password:
-        name: primary-credentials-metrics
-        key: password
+        valueFrom:
+          secretKeyRef:
+            name: prometheus
+            key: password
 
   # Supply an empty namespace selector to look in all namespaces. Remove
   # this to only look in the same namespace as the MetricsInstance CR

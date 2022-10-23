@@ -10,15 +10,11 @@ spec:
   - url: https://logs-prod3.grafana.net
     basicAuth:
       username:
-        valueFrom:
-          secretKeyRef:
-            name: loki
-            key: username
+        name: loki
+        key: username
       password:
-        valueFrom:
-          secretKeyRef:
-            name: loki
-            key: password
+        name: loki
+        key: password
 
   # Supply an empty namespace selector to look in all namespaces. Remove
   # this to only look in the same namespace as the LogsInstance CR

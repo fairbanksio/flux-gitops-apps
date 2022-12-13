@@ -12,7 +12,7 @@ spec:
         kind: HelmRepository
         name: fairbanks-io
         namespace: flux-system
-  interval: 30s
+  interval: 300s
   targetNamespace: f5
   values:
     secretName: f5oclock-mongouri

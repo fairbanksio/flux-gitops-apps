@@ -13,7 +13,7 @@ spec:
         kind: HelmRepository
         name: jonfairbanks
         namespace: flux-system
-  interval: 30s
+  interval: 300s
   targetNamespace: docker-node-app
   values:
     replicas: 1

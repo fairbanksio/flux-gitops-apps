@@ -16,7 +16,7 @@ spec:
         namespace: flux-system
   dependsOn:
     - name: yo-api
-  interval: 30s
+  interval: 300s
   targetNamespace: yo
   values:
     replicas: 1

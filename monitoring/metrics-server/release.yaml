@@ -17,10 +17,3 @@ spec:
   targetNamespace: default
   values:
     hostNetwork: true
-    extraArgs:
-      - --kubelet-preferred-address-types=InternalIP
-      - --kubelet-insecure-tls=true
-    replicas: 2
-    pdb:
-      create: true
-      minAvailable: 1 

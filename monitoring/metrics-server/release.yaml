@@ -3,17 +3,24 @@ apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
   name: metrics-server
-  namespace: kube-system
+  namespace: default
 spec:
   chart:
     spec:
       chart: metrics-server
+      version: 6.x.x
       sourceRef:
         kind: HelmRepository
-        name: metrics-server
+        name: bitnami
         namespace: flux-system
   interval: 6h
-  targetNamespace: kube-system
+  targetNamespace: default
   values:
-    hostNetwork:
-      enabled: true
+    hostNetwork: true
+    extraArgs:
+      - --kubelet-preferred-address-types=InternalIP
+      - --kubelet-insecure-tls=true
+    replicas: 2
+    pdb:
+      create: true
+      minAvailable: 1 

@@ -8,16 +8,16 @@ spec:
   chart:
     spec:
       chart: metrics-server
-      version: 6.x.x
       sourceRef:
         kind: HelmRepository
-        name: bitnami
+        name: metrics-server
         namespace: flux-system
   interval: 6h
   targetNamespace: kube-system
   values:
-    hostNetwork: true
-    extraArgs:
+    hostNetwork:
+      enabled: true
+    args:
       - --kubelet-preferred-address-types=InternalIP
       - --kubelet-insecure-tls=true
     replicas: 2

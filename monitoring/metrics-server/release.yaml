@@ -17,10 +17,8 @@ spec:
   values:
     hostNetwork:
       enabled: true
-    args:
-      - --kubelet-preferred-address-types=InternalIP
+    defaultArgs:
       - --kubelet-insecure-tls=true
-    replicas: 2
-    pdb:
-      create: true
-      minAvailable: 1 
+      - --kubelet-preferred-address-types=InternalIP,ExternalIP,Hostname
+      - --kubelet-use-node-status-port
+      - --metric-resolution=15s 

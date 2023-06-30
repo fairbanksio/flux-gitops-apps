@@ -16,6 +16,7 @@ spec:
   targetNamespace: f5
   values:
     secretName: f5oclock-mongouri
+    schedule: "*/5 * * * *"
     subreddits:
       - "politics"
       - "worldnews"

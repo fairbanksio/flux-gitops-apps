@@ -1,0 +1,48 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: slumcast
+  namespace: slumcast
+spec:
+  chart:
+    spec:
+      chart: slumcast
+      version: 1.x.x
+      sourceRef:
+        kind: HelmRepository
+        name: bsord
+        namespace: flux-system
+  interval: 300s
+  targetNamespace: slumcast
+  values:
+    replicas: 1
+    minAvailable: 1
+    autoscaling:
+      enabled: true
+      minReplicas: 2
+      maxReplicas: 3
+      targetCPUUtilizationPercentage: 50
+    resources:
+      requests:
+        cpu: 20m
+    topologySpreadConstraints:
+      - labelSelector:
+          matchLabels:
+            app.kubernetes.io/instance: slumcast-slumcast
+        maxSkew: 1
+        topologyKey: kubernetes.io/hostname
+        whenUnsatisfiable: ScheduleAnyway
+    ingress:
+      enabled: true
+      annotations:
+        kubernetes.io/ingress.class: nginx
+        nginx.ingress.kubernetes.io/configuration-snippet: |
+          proxy_set_header l5d-dst-override $service_name.$namespace.svc.cluster.local:$service_port;
+          if ($host = "slumcast.bsord.io") {
+              return 308 https://slumcast.bsord.io$request_uri;
+          }
+      hosts:
+        - host: slumcast.bsord.io
+          paths:
+            - "/"

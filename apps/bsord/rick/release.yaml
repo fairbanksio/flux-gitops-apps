@@ -17,7 +17,7 @@ spec:
   targetNamespace: rick
   values:
     image:
-      tag: latest
+      tag: test
       repository: bsord/docker-rickroll
       pullPolicy: Always
     replicas: 1

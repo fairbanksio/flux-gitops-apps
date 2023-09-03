@@ -19,6 +19,7 @@ spec:
     image:
       tag: latest
       repository: bsord/docker-rickroll
+      pullPolicy: Always
     replicas: 1
     minAvailable: 1
     podAnnotations:
